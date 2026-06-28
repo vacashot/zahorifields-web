@@ -13,7 +13,7 @@ const datasets = [
   {
     name: 'EX1_RGB.tif',
     sensor: 'RGB',
-    bands: { red: 1, green: 1, blue: 1, redEdge: null, nir: null, thermal: null },
+    bands: { red: 1, green: 2, blue: 3, redEdge: null, nir: null, thermal: null },
     range: '0 – 256',
     size: '5.4 MB',
     notes: 'Trial plots',
