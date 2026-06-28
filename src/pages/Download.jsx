@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Download as DownloadIcon, Terminal, CheckCircle, AlertCircle } from 'lucide-react'
+import { Download as DownloadIcon, Terminal, CheckCircle, AlertCircle, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const requirements = [
   { label: 'Sistema operativo', min: 'Windows 10 64-bit', rec: 'Windows 11 64-bit' },
@@ -30,9 +31,10 @@ export default function Download() {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 py-14">
-        {/* OS Card — solo Windows */}
-        <div className="max-w-sm mb-14">
-          <div className="border-2 border-accent bg-white p-6 rounded-sm">
+        {/* OS Cards */}
+        <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mb-14">
+          {/* Windows */}
+          <div className="border-2 border-accent bg-white p-6 rounded-sm flex-1">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <p className="text-sm font-semibold text-text">Windows</p>
@@ -48,6 +50,25 @@ export default function Download() {
               Descargar .zip
             </a>
             <p className="text-[11px] text-muted mt-3 text-center">Windows · ~144 MB · v1.1</p>
+          </div>
+
+          {/* Docker */}
+          <div className="border border-border bg-white p-6 rounded-sm flex-1">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <p className="text-sm font-semibold text-text">Docker</p>
+                <p className="text-xs font-mono text-muted mt-0.5">Mac · Linux · Windows</p>
+              </div>
+              <span className="text-[10px] font-mono text-muted border border-border bg-surface-2 px-2 py-0.5 rounded-sm">Avanzado</span>
+            </div>
+            <Link
+              to="/docs"
+              className="btn-ghost w-full justify-center"
+            >
+              <ArrowRight className="w-4 h-4" />
+              Ver instrucciones
+            </Link>
+            <p className="text-[11px] text-muted mt-3 text-center">Requiere Docker Desktop</p>
           </div>
         </div>
 
