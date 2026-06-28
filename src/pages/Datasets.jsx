@@ -10,60 +10,6 @@ const datasets = [
     notes: 'Trial plots',
     url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX1_RGB.tif',
   },
-  {
-    name: 'MicaSense_Altum_Cereal_2024.tif',
-    sensor: 'MicaSense Altum',
-    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: 6 },
-    range: '0 – 1',
-    size: '3.1 GB',
-    notes: 'Reflectancia normalizada. Referencia para CWSI.',
-    url: '#',
-  },
-  {
-    name: 'MicaSense_RedEdge_Vinedo_2024.tif',
-    sensor: 'MicaSense RedEdge-MX',
-    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: null },
-    range: '0 – 65535',
-    size: '1.8 GB',
-    notes: '16-bit sin calibrar. Viñedo en estado vegetativo.',
-    url: '#',
-  },
-  {
-    name: 'Sentera_6X_Olivar_2024.tif',
-    sensor: 'Sentera 6X',
-    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: null },
-    range: '0 – 1',
-    size: '950 MB',
-    notes: 'Calibrada con panel. GCP incluidos.',
-    url: '#',
-  },
-  {
-    name: 'MAPIR_Survey3_Maiz_RGN.tif',
-    sensor: 'MAPIR Survey3',
-    bands: { red: 1, green: 2, blue: null, redEdge: null, nir: 3, thermal: null },
-    range: '0 – 255',
-    size: '2.3 GB',
-    notes: '8-bit RGN. Floración. Útil para EBI.',
-    url: '#',
-  },
-  {
-    name: 'Tetracam_ADC_Remolacha.tif',
-    sensor: 'Tetracam ADC Lite',
-    bands: { red: null, green: 1, blue: null, redEdge: null, nir: 2, thermal: null },
-    range: '0 – 1023',
-    size: '620 MB',
-    notes: '10-bit. Para pruebas de NDVI y SAVI.',
-    url: '#',
-  },
-  {
-    name: 'DJI_P4M_Cereal_2024.tif',
-    sensor: 'DJI P4 Multispectral',
-    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: null },
-    range: '0 – 65535',
-    size: '1.5 GB',
-    notes: 'Incluye panel de calibración. Cebada.',
-    url: '#',
-  },
 ]
 
 const bandInfo = [
@@ -126,7 +72,16 @@ export default function Datasets() {
             <tbody>
               {datasets.map((d, i) => (
                 <tr key={d.name} className={`hover:bg-surface-2 transition-colors ${i < datasets.length - 1 ? 'border-b border-border' : ''}`}>
-                  <td className="px-4 py-3.5 font-mono text-xs text-text font-medium whitespace-nowrap">{d.name}</td>
+                  <td className="px-4 py-3.5 whitespace-nowrap">
+                    <a
+                      href={d.url}
+                      download
+                      className="font-mono text-xs text-accent hover:underline font-medium"
+                      style={{ cursor: 'url(/favicon.png) 8 8, pointer' }}
+                    >
+                      {d.name}
+                    </a>
+                  </td>
                   <td className="px-4 py-3.5 text-xs text-muted whitespace-nowrap">{d.sensor}</td>
                   <BandCell v={d.bands.red} />
                   <BandCell v={d.bands.green} />
@@ -140,7 +95,12 @@ export default function Datasets() {
                   <td className="px-4 py-3.5 text-xs text-muted font-mono text-right whitespace-nowrap">{d.size}</td>
                   <td className="px-4 py-3.5 text-xs text-muted max-w-[160px]">{d.notes}</td>
                   <td className="px-4 py-3.5">
-                    <a href={d.url} onClick={(e) => e.preventDefault()} className="text-muted hover:text-accent transition-colors">
+                    <a
+                      href={d.url}
+                      download
+                      className="text-muted hover:text-accent transition-colors"
+                      style={{ cursor: 'url(/favicon.png) 8 8, pointer' }}
+                    >
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </td>
