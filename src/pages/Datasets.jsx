@@ -2,6 +2,15 @@ import { ExternalLink } from 'lucide-react'
 
 const datasets = [
   {
+    name: 'EX1_RGB.tif',
+    sensor: 'RGB',
+    bands: { red: 1, green: 1, blue: 1, redEdge: null, nir: null, thermal: null },
+    range: '0 – 256',
+    size: '5.4 MB',
+    notes: 'Trial plots',
+    url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX1_RGB.tif',
+  },
+  {
     name: 'MicaSense_Altum_Cereal_2024.tif',
     sensor: 'MicaSense Altum',
     bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: 6 },
