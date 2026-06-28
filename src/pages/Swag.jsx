@@ -6,6 +6,7 @@ const products = [
     desc: 'Pegatina cuadrada con el logo ZahoriFields. Vinilo de alta calidad, resistente al agua y a la intemperie. Perfecta para portátiles, equipos de campo y vehículos.',
     price: '$2.50',
     tag: 'Más popular',
+    img: '/images/swag/square-stickers.jpg',
     url: 'https://zahorifields.printify.me/product/29613378',
   },
   {
@@ -13,6 +14,7 @@ const products = [
     desc: 'Pegatina troquelada en vinilo con acabado profesional. Contorno perfecto alrededor del logo. Ideal para personalizar equipamiento de laboratorio o drones.',
     price: '$9.42',
     tag: null,
+    img: '/images/swag/vinyl-kiss-cut-stickers.jpg',
     url: 'https://zahorifields.printify.me/product/29613699',
   },
   {
@@ -20,14 +22,8 @@ const products = [
     desc: 'Chapa con el logo ZahoriFields. Perfecta para congresos, jornadas técnicas y eventos de agricultura de precisión.',
     price: '$4.99',
     tag: null,
+    img: '/images/swag/custom-pin-buttons.jpg',
     url: 'https://zahorifields.printify.me/product/29613439',
-  },
-  {
-    name: 'Unisex Sweatshirt',
-    desc: 'Sudadera unisex de alta calidad con el logo ZahoriFields. Tejido garment-dyed, suave y duradero. Disponible en varios colores y tallas.',
-    price: '$51.07',
-    tag: null,
-    url: 'https://zahorifields.printify.me/product/29613573',
   },
 ]
 
@@ -63,14 +59,13 @@ export default function Swag() {
 
         {/* Productos */}
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5 mb-16">
-          {products.map(({ name, desc, price, tag, url }) => (
+          {products.map(({ name, desc, price, tag, img, url }) => (
             <div key={name} className="card flex flex-col group">
-              {/* Placeholder imagen */}
-              <div className="w-full aspect-square bg-surface-2 border border-border mb-4 flex items-center justify-center overflow-hidden">
+              <div className="w-full aspect-square bg-surface-2 border border-border mb-4 overflow-hidden">
                 <img
-                  src="/images/logo-vertical.png"
+                  src={img}
                   alt={name}
-                  className="w-16 h-16 object-contain opacity-20 group-hover:opacity-30 transition-opacity"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
