@@ -2,6 +2,15 @@ import { ExternalLink } from 'lucide-react'
 
 const datasets = [
   {
+    name: 'finca_colza_fertinagro_03_12_2025_altum_20m.tif',
+    sensor: 'MicaSense Altum',
+    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: 6 },
+    range: '0 – 65535',
+    size: '1.5 GB',
+    notes: 'Ensayo de colza',
+    url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/finca_colza_fertinagro_03_12_2025_altum_20m.tif',
+  },
+  {
     name: 'EX1_RGB.tif',
     sensor: 'RGB',
     bands: { red: 1, green: 1, blue: 1, redEdge: null, nir: null, thermal: null },
