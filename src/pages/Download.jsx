@@ -30,14 +30,13 @@ export default function Download() {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 py-14">
-        {/* OS Cards */}
-        <div className="grid md:grid-cols-3 gap-4 mb-14">
-          {/* Windows activo */}
+        {/* OS Card — solo Windows */}
+        <div className="max-w-sm mb-14">
           <div className="border-2 border-accent bg-white p-6 rounded-sm">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <p className="text-sm font-semibold text-text">Windows</p>
-                <p className="text-xs font-mono text-muted mt-0.5">v1.0.0 · 2025</p>
+                <p className="text-xs font-mono text-muted mt-0.5">v1.1 · 2026</p>
               </div>
               <span className="text-[10px] font-mono text-accent border border-accent bg-accent-light px-2 py-0.5 rounded-sm">Disponible</span>
             </div>
@@ -48,21 +47,8 @@ export default function Download() {
               <DownloadIcon className="w-4 h-4" />
               Descargar .zip
             </a>
-            <p className="text-[11px] text-muted mt-3 text-center">Windows · ~144 MB · v1.0.0</p>
+            <p className="text-[11px] text-muted mt-3 text-center">Windows · ~144 MB · v1.1</p>
           </div>
-
-          {['macOS', 'Linux'].map((os) => (
-            <div key={os} className="border border-border bg-white p-6 rounded-sm opacity-50">
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <p className="text-sm font-semibold text-text">{os}</p>
-                  <p className="text-xs font-mono text-muted mt-0.5">— · —</p>
-                </div>
-                <span className="text-[10px] font-mono text-muted border border-border px-2 py-0.5 rounded-sm">Próximamente</span>
-              </div>
-              <button disabled className="btn-ghost w-full justify-center cursor-not-allowed opacity-60">No disponible</button>
-            </div>
-          ))}
         </div>
 
         {/* Nota */}
