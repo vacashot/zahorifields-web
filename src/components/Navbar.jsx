@@ -7,6 +7,7 @@ const links = [
   { to: '/docs', label: 'Docs' },
   { to: '/docker', label: 'Docker' },
   { to: '/comunidad', label: 'Comunidad' },
+  { to: '/galeria', label: 'Galería' },
   { to: '/swag', label: 'Swag' },
   { to: '/code', label: 'Code' },
 ]
