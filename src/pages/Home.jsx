@@ -6,16 +6,28 @@ const features = [
   { icon: Droplets, title: 'Estrés Hídrico (CWSI)', desc: 'Índice de Estrés Hídrico de Cultivos a partir de imágenes térmicas.' },
   { icon: Flower2, title: 'Índice de Floración (EBI)', desc: 'Detección de estados fenológicos mediante índice espectral especializado.' },
   { icon: Thermometer, title: 'Imágenes Térmicas', desc: 'Procesamiento de ortofotos térmicas calibradas para agricultura de precisión.' },
-  { icon: Map, title: 'Dosificación Variable', desc: 'Mapas de prescripción y zonas de manejo diferenciado por parcela.' },
-  { icon: Calculator, title: 'Calculadora ULV', desc: 'Cálculo de dosis para aplicación Ultra Bajo Volumen con dron agrícola.' },
+  { icon: Map, title: 'Zonas de Manejo', desc: 'Definición de parcelas, ensayos, tratamientos y repeticiones sobre el mapa.' },
+  { icon: Calculator, title: 'Métricas por Parcela', desc: 'Estadísticas zonales, histogramas y comparación de resultados entre fechas.' },
   { icon: ScanLine, title: 'Calibración Radiométrica', desc: 'Calibración guiada para MicaSense, Sentera, MAPIR, Tetracam y RGB.' },
   { icon: Sliders, title: 'Modular y Extensible', desc: 'Nuevas herramientas de análisis incorporadas de forma continua.' },
 ]
 
 const steps = [
-  { n: '01', title: 'Carga tus imágenes', desc: 'Importa ortofotos de cualquier cámara multiespectral, RGB o térmica desde el dron.' },
-  { n: '02', title: 'Calibra y procesa', desc: 'Calibración radiométrica guiada y cálculo automático de índices especializados.' },
-  { n: '03', title: 'Exporta y aplica', desc: 'Mapas de prescripción, reports y capas SIG listos para aplicar en campo.' },
+  {
+    n: '01',
+    title: 'Carga tus datos UAS',
+    desc: 'Importa ortomosaicos RGB, multiespectrales, térmicos o capas derivadas de vuelos con dron.',
+  },
+  {
+    n: '02',
+    title: 'Define zonas de análisis',
+    desc: 'Dibuja o carga parcelas, ensayos, tratamientos, repeticiones o áreas de interés.',
+  },
+  {
+    n: '03',
+    title: 'Obtén resultados agronómicos',
+    desc: 'Calcula índices, compara mapas y extrae estadísticas útiles para interpretar la variabilidad del cultivo.',
+  },
 ]
 
 export default function Home() {
@@ -24,39 +36,39 @@ export default function Home() {
       {/* Hero */}
       <section className="pt-36 pb-24 px-6 bg-white border-b border-border">
         <div className="max-w-5xl mx-auto">
-          <span className="inline-block text-[11px] font-mono tracking-widest text-accent uppercase bg-accent-light px-3 py-1 mb-8">
-            by ITACYL · Instituto Tecnológico Agrario de Castilla y León
+          <span className="inline-block text-[11px] font-mono tracking-widest text-muted uppercase bg-surface-2 border border-border px-3 py-1 mb-8">
+            ZAHORI FIELDS · HERRAMIENTA GEOINFORMÁTICA LOCAL · TFM GEOINFORMÁTICA
           </span>
 
           <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-6 text-text">
-            Del vuelo al mapa<br />
-            <span className="text-accent">en minutos.</span>
+            Convierte imágenes de dron en<br />
+            <span className="text-accent">información agronómica útil</span>
           </h1>
 
-          <p className="text-lg text-muted max-w-xl leading-relaxed mb-10">
-            Análisis de imágenes multiespectrales, RGB y térmicas obtenidas con dron.
-            Índices de vegetación, estrés hídrico, floración y dosificación variable —
-            sin necesidad de programar.
+          <p className="text-base text-muted max-w-2xl leading-relaxed mb-10">
+            Zahori Fields es una aplicación local, ejecutada desde el navegador, para analizar imágenes RGB,
+            multiespectrales, térmicas y modelos derivados de vuelos UAS. Permite calcular índices, delimitar
+            zonas de interés, comparar resultados y extraer métricas para ensayos y seguimiento de cultivos.
           </p>
 
           <div className="flex flex-wrap gap-3">
             <Link to="/download" className="btn-primary">
-              Descargar gratis <ArrowRight className="w-4 h-4" />
+              Ver funcionalidades <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/docs" className="btn-ghost">
-              Documentación
+              Documentación técnica
             </Link>
           </div>
 
           <p className="text-xs text-muted mt-6 font-mono">
-            v1.0.0 · Solo Windows · Gratuito · Código abierto
+            Prototipo TFM · Windows · Ejecución local · Agricultura de precisión
           </p>
         </div>
       </section>
 
       {/* Flujo de 3 pasos */}
       <section className="section">
-        <span className="section-label">Cómo funciona</span>
+        <span className="section-label">Flujo de trabajo</span>
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map(({ n, title, desc }) => (
             <div key={n} className="card">
