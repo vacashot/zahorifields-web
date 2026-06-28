@@ -51,7 +51,7 @@ export default function Home() {
           </div>
 
           <p className="text-xs text-muted mt-6 font-mono">
-            v1.0 · Windows · Gratuito y de código abierto
+            v1.0.0 · Windows · Gratuito y de código abierto
           </p>
         </div>
       </section>

@@ -57,14 +57,13 @@ export default function Download() {
               <span className="text-[10px] font-mono text-accent border border-accent px-2 py-0.5">Disponible</span>
             </div>
             <a
-              href="#"
+              href="https://github.com/vacashot/zahorifields-web/releases/download/v1.0.0/ZahoriFields_v1.0.0_Windows.zip"
               className="btn-primary w-full justify-center"
-              onClick={(e) => e.preventDefault()}
             >
               <DownloadIcon className="w-4 h-4" />
-              Descargar .exe
+              Descargar .zip
             </a>
-            <p className="text-[11px] text-muted mt-3 text-center">Instalador · ~120 MB</p>
+            <p className="text-[11px] text-muted mt-3 text-center">Windows · ~144 MB · v1.0.0</p>
           </div>
 
           {/* macOS — próximamente */}
