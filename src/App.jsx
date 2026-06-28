@@ -8,6 +8,7 @@ import Docs from './pages/Docs'
 import Comunidad from './pages/Comunidad'
 import Swag from './pages/Swag'
 import Code from './pages/Code'
+import Docker from './pages/Docker'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/comunidad" element={<Comunidad />} />
             <Route path="/swag" element={<Swag />} />
             <Route path="/code" element={<Code />} />
+            <Route path="/docker" element={<Docker />} />
           </Routes>
         </main>
         <Footer />

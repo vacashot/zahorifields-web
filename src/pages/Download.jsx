@@ -62,7 +62,7 @@ export default function Download() {
               <span className="text-[10px] font-mono text-muted border border-border bg-surface-2 px-2 py-0.5 rounded-sm">Avanzado</span>
             </div>
             <Link
-              to="/docs"
+              to="/docker"
               className="btn-ghost w-full justify-center"
             >
               <ArrowRight className="w-4 h-4" />

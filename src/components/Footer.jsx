@@ -36,7 +36,7 @@ export default function Footer() {
         <div>
           <p className="text-[11px] font-mono tracking-widest text-muted uppercase mb-4">Recursos</p>
           <ul className="space-y-2.5">
-            {[['Documentación', '/docs'], ['Comunidad', '/comunidad']].map(([l, to]) => (
+            {[['Documentación', '/docs'], ['Docker', '/docker'], ['Comunidad', '/comunidad']].map(([l, to]) => (
               <li key={to}>
                 <Link to={to} className="text-sm text-muted hover:text-text transition-colors">{l}</Link>
               </li>
