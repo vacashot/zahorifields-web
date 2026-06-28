@@ -62,7 +62,7 @@ export default function Footer() {
 
       <div className="border-t border-border">
         <div className="max-w-5xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-muted">© 2025 ITACYL — Instituto Tecnológico Agrario de Castilla y León</p>
+          <p className="text-xs text-muted">© 2026 ITACYL — Instituto Tecnológico Agrario de Castilla y León</p>
           <p className="text-xs text-muted">ZahoriFields — Licencia abierta</p>
         </div>
       </div>
