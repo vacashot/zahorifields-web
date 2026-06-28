@@ -133,23 +133,23 @@ export default function Docs() {
             ))}
           </ul>
 
-          <h3 className="text-sm font-medium text-text mb-2">Opción A — Docker Compose (recomendado)</h3>
-          <p className="text-xs text-muted mb-3">Descarga el archivo <code className="font-mono bg-surface-2 px-1.5 py-0.5 rounded-sm border border-border text-text">docker-compose.yml</code> y ejecuta:</p>
+          <h3 className="text-sm font-medium text-text mb-2">Opción A — Un solo comando (recomendado)</h3>
+          <p className="text-xs text-muted mb-3">Sin descargar código. La imagen se descarga automáticamente desde Docker Hub:</p>
           <div className="bg-[#1a1a1a] rounded-sm p-4 mb-6 overflow-x-auto">
             <pre className="text-xs text-green-400 font-mono leading-relaxed">{`# Arrancar ZahoriFields
-docker compose up -d
+docker run -p 8000:8000 neburelgrande/zahorifields:latest
 
 # Abrir en el navegador
-http://localhost:8000
+http://localhost:8000`}</pre>
+          </div>
+
+          <h3 className="text-sm font-medium text-text mb-2">Opción B — Docker Compose (datos persistentes)</h3>
+          <p className="text-xs text-muted mb-3">Descarga el <code className="font-mono bg-surface-2 px-1.5 py-0.5 rounded-sm border border-border text-text">docker-compose.yml</code> y ejecuta:</p>
+          <div className="bg-[#1a1a1a] rounded-sm p-4 mb-6 overflow-x-auto">
+            <pre className="text-xs text-green-400 font-mono leading-relaxed">{`docker compose up -d
 
 # Detener
 docker compose down`}</pre>
-          </div>
-
-          <h3 className="text-sm font-medium text-text mb-2">Opción B — Docker directo</h3>
-          <div className="bg-[#1a1a1a] rounded-sm p-4 mb-6 overflow-x-auto">
-            <pre className="text-xs text-green-400 font-mono leading-relaxed">{`docker build -t zahorifields .
-docker run -p 8000:8000 zahorifields`}</pre>
           </div>
 
           <div className="grid md:grid-cols-3 gap-4">
