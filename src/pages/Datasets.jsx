@@ -86,7 +86,7 @@ export default function Datasets() {
                       href={d.url}
                       download
                       className="font-mono text-xs text-accent hover:underline font-medium"
-                      style={{ cursor: 'url(/favicon.png) 8 8, pointer' }}
+                      style={{ cursor: 'url(/cursor.png) 16 16, pointer' }}
                     >
                       {d.name}
                     </a>
@@ -108,7 +108,7 @@ export default function Datasets() {
                       href={d.url}
                       download
                       className="text-muted hover:text-accent transition-colors"
-                      style={{ cursor: 'url(/favicon.png) 8 8, pointer' }}
+                      style={{ cursor: 'url(/cursor.png) 16 16, pointer' }}
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
