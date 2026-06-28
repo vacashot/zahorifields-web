@@ -1,36 +1,34 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Layers, Thermometer, Droplets, FlowerIcon, Map, Calculator, ScanLine, Sliders } from 'lucide-react'
-import DroneIcon from '../components/DroneIcon'
+import { ArrowRight, Layers, Thermometer, Droplets, Flower2, Map, Calculator, ScanLine, Sliders } from 'lucide-react'
 
 const features = [
-  { icon: Layers, title: 'Índices de Vegetación', desc: 'Más de 50 índices multiespectrales incluyendo NDVI, NDRE, SAVI y variantes avanzadas.' },
-  { icon: Droplets, title: 'Estrés Hídrico (CWSI)', desc: 'Cálculo del Índice de Estrés Hídrico de Cultivos a partir de imágenes térmicas.' },
-  { icon: FlowerIcon, title: 'Índice de Floración (EBI)', desc: 'Detección y mapeo de estados fenológicos mediante índice espectral especializado.' },
-  { icon: Thermometer, title: 'Imágenes Térmicas', desc: 'Procesamiento y análisis de ortofotos térmicas calibradas para agricultura de precisión.' },
-  { icon: Map, title: 'Dosificación Variable', desc: 'Generación de mapas de prescripción y zonas de manejo diferenciado.' },
-  { icon: Calculator, title: 'Calculadora ULV', desc: 'Dosis para aplicación Ultra Bajo Volumen con dron agrícola, por cultivo y superficie.' },
-  { icon: ScanLine, title: 'Calibración Radiométrica', desc: 'Flujo de calibración para cámaras MicaSense, Sentera, MAPIR, Tetracam y RGB.' },
-  { icon: Sliders, title: 'Modular y Extensible', desc: 'Arquitectura modular. Nuevas herramientas de análisis se incorporan de forma continua.' },
+  { icon: Layers, title: 'Índices de Vegetación', desc: 'Más de 50 índices multiespectrales: NDVI, NDRE, SAVI y variantes avanzadas.' },
+  { icon: Droplets, title: 'Estrés Hídrico (CWSI)', desc: 'Índice de Estrés Hídrico de Cultivos a partir de imágenes térmicas.' },
+  { icon: Flower2, title: 'Índice de Floración (EBI)', desc: 'Detección de estados fenológicos mediante índice espectral especializado.' },
+  { icon: Thermometer, title: 'Imágenes Térmicas', desc: 'Procesamiento de ortofotos térmicas calibradas para agricultura de precisión.' },
+  { icon: Map, title: 'Dosificación Variable', desc: 'Mapas de prescripción y zonas de manejo diferenciado por parcela.' },
+  { icon: Calculator, title: 'Calculadora ULV', desc: 'Cálculo de dosis para aplicación Ultra Bajo Volumen con dron agrícola.' },
+  { icon: ScanLine, title: 'Calibración Radiométrica', desc: 'Calibración guiada para MicaSense, Sentera, MAPIR, Tetracam y RGB.' },
+  { icon: Sliders, title: 'Modular y Extensible', desc: 'Nuevas herramientas de análisis incorporadas de forma continua.' },
 ]
 
 const steps = [
-  { n: '01', title: 'Carga tus imágenes', desc: 'Importa ortofotos de cualquier cámara multiespectral, RGB o térmica.' },
-  { n: '02', title: 'Calibra y procesa', desc: 'Calibración radiométrica guiada y cálculo automático de índices.' },
-  { n: '03', title: 'Exporta y aplica', desc: 'Mapas de prescripción, reports y capas SIG listos para campo.' },
+  { n: '01', title: 'Carga tus imágenes', desc: 'Importa ortofotos de cualquier cámara multiespectral, RGB o térmica desde el dron.' },
+  { n: '02', title: 'Calibra y procesa', desc: 'Calibración radiométrica guiada y cálculo automático de índices especializados.' },
+  { n: '03', title: 'Exporta y aplica', desc: 'Mapas de prescripción, reports y capas SIG listos para aplicar en campo.' },
 ]
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-40 pb-28 px-6">
+      <section className="pt-36 pb-24 px-6 bg-white border-b border-border">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-2 mb-8">
-            <DroneIcon className="w-8 h-8 text-accent" />
-            <span className="text-[11px] font-mono tracking-widest text-muted uppercase">by ITACYL</span>
-          </div>
+          <span className="inline-block text-[11px] font-mono tracking-widest text-accent uppercase bg-accent-light px-3 py-1 mb-8">
+            by ITACYL · Instituto Tecnológico Agrario de Castilla y León
+          </span>
 
-          <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-6 text-[#efefef]">
+          <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-6 text-text">
             Del vuelo al mapa<br />
             <span className="text-accent">en minutos.</span>
           </h1>
@@ -43,7 +41,7 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-3">
             <Link to="/download" className="btn-primary">
-              Download <ArrowRight className="w-4 h-4" />
+              Descargar gratis <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/docs" className="btn-ghost">
               Documentación
@@ -51,64 +49,68 @@ export default function Home() {
           </div>
 
           <p className="text-xs text-muted mt-6 font-mono">
-            v1.0.0 · Windows · Gratuito y de código abierto
+            v1.0.0 · Solo Windows · Gratuito · Código abierto
           </p>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="border-t border-border" />
-
       {/* Flujo de 3 pasos */}
       <section className="section">
         <span className="section-label">Cómo funciona</span>
-        <div className="grid md:grid-cols-3 gap-0 border border-border">
-          {steps.map(({ n, title, desc }, i) => (
-            <div
-              key={n}
-              className={`p-8 ${i < steps.length - 1 ? 'border-b md:border-b-0 md:border-r border-border' : ''}`}
-            >
-              <p className="font-mono text-xs text-accent mb-4">{n}</p>
-              <h3 className="text-base font-medium text-[#efefef] mb-2">{title}</h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          {steps.map(({ n, title, desc }) => (
+            <div key={n} className="card">
+              <p className="font-mono text-xs text-accent mb-4 font-medium">{n}</p>
+              <h3 className="text-base font-semibold text-text mb-2">{title}</h3>
               <p className="text-sm text-muted leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="border-t border-border" />
-
       {/* Features */}
+      <section className="bg-white border-t border-b border-border">
+        <div className="section">
+          <span className="section-label">Capacidades</span>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {features.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="group">
+                <div className="w-10 h-10 bg-accent-light rounded-sm flex items-center justify-center mb-4 group-hover:bg-accent transition-colors duration-150">
+                  <Icon className="w-5 h-5 text-accent group-hover:text-white transition-colors duration-150" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-sm font-semibold text-text mb-1.5">{title}</h3>
+                <p className="text-xs text-muted leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cámaras compatibles */}
       <section className="section">
-        <span className="section-label">Capacidades</span>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-px bg-border">
-          {features.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-bg p-6 hover:bg-surface transition-colors duration-150">
-              <Icon className="w-5 h-5 text-accent mb-4" strokeWidth={1.5} />
-              <h3 className="text-sm font-medium text-[#efefef] mb-2">{title}</h3>
-              <p className="text-xs text-muted leading-relaxed">{desc}</p>
-            </div>
+        <span className="section-label">Cámaras compatibles</span>
+        <div className="flex flex-wrap gap-3">
+          {['MicaSense RedEdge', 'MicaSense Altum', 'Sentera 6X', 'MAPIR Survey3', 'Tetracam ADC', 'DJI P4 Multispectral', 'Cámaras RGB', 'FLIR Térmica'].map((cam) => (
+            <span key={cam} className="border border-border bg-white text-muted text-xs px-4 py-2 font-mono">
+              {cam}
+            </span>
           ))}
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="border-t border-border" />
-
       {/* CTA final */}
-      <section className="section text-center">
-        <p className="text-[11px] font-mono tracking-widest text-muted uppercase mb-6">Empieza ahora</p>
-        <h2 className="text-3xl font-semibold tracking-tight text-[#efefef] mb-4">
-          Descarga ZahoriFields
-        </h2>
-        <p className="text-muted text-sm mb-8 max-w-md mx-auto">
-          Disponible para Windows. Gratuito, sin límites de uso, desarrollado por el
-          Instituto Tecnológico Agrario de Castilla y León.
-        </p>
-        <Link to="/download" className="btn-primary">
-          Download <ArrowRight className="w-4 h-4" />
-        </Link>
+      <section className="bg-accent">
+        <div className="max-w-5xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div>
+            <h2 className="text-2xl font-semibold text-white mb-2">Descarga ZahoriFields</h2>
+            <p className="text-green-100 text-sm">
+              Gratuito, sin límites, desarrollado por ITACYL para investigadores y agricultores.
+            </p>
+          </div>
+          <Link to="/download" className="inline-flex items-center gap-2 bg-white text-accent hover:bg-green-50 text-sm font-semibold px-6 py-3 transition-colors rounded-sm whitespace-nowrap">
+            Download <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </section>
     </>
   )

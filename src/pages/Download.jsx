@@ -10,51 +10,36 @@ const requirements = [
 ]
 
 const faqs = [
-  {
-    q: '¿Funciona sin conexión a internet?',
-    a: 'Sí. ZahoriFields procesa todas las imágenes de forma local en tu equipo. No se envían datos a ningún servidor externo.',
-  },
-  {
-    q: '¿Qué cámaras son compatibles?',
-    a: 'MicaSense RedEdge y Altum, Sentera, MAPIR, Tetracam y cualquier cámara RGB estándar. También imágenes térmicas FLIR y DJI Zenmuse.',
-  },
-  {
-    q: '¿Está disponible para Mac o Linux?',
-    a: 'Por ahora solo para Windows. Las versiones para otros sistemas operativos están en desarrollo.',
-  },
-  {
-    q: '¿Es de pago?',
-    a: 'No. ZahoriFields es gratuito y de código abierto, desarrollado por ITACYL como herramienta pública para investigadores y agricultores.',
-  },
+  { q: '¿Funciona sin conexión a internet?', a: 'Sí. ZahoriFields procesa todas las imágenes de forma local en tu equipo. No se envían datos a ningún servidor externo.' },
+  { q: '¿Qué cámaras son compatibles?', a: 'MicaSense RedEdge y Altum, Sentera, MAPIR, Tetracam y cualquier cámara RGB estándar. También imágenes térmicas FLIR y DJI Zenmuse.' },
+  { q: '¿Está disponible para Mac o Linux?', a: 'Por ahora solo para Windows. Las versiones para otros sistemas operativos están en desarrollo.' },
+  { q: '¿Es de pago?', a: 'No. ZahoriFields es gratuito y de código abierto, desarrollado por ITACYL como herramienta pública para investigadores y agricultores.' },
 ]
 
 export default function Download() {
   const [openFaq, setOpenFaq] = useState(null)
 
   return (
-    <div className="pt-28">
-      {/* Header */}
-      <div className="border-b border-border">
+    <div className="pt-16">
+      <div className="bg-white border-b border-border">
         <div className="max-w-5xl mx-auto px-6 py-16">
           <span className="section-label">Software</span>
-          <h1 className="text-4xl font-semibold tracking-tight text-[#efefef] mb-3">Download</h1>
-          <p className="text-muted text-sm max-w-md">
-            Descarga ZahoriFields para tu sistema operativo. Gratuito, sin registro requerido.
-          </p>
+          <h1 className="text-4xl font-semibold tracking-tight text-text mb-3">Download</h1>
+          <p className="text-muted text-sm max-w-md">Descarga ZahoriFields para tu sistema operativo. Gratuito, sin registro requerido.</p>
         </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-6 py-14">
-        {/* OS Tabs — Windows activo, resto próximamente */}
+        {/* OS Cards */}
         <div className="grid md:grid-cols-3 gap-4 mb-14">
-          {/* Windows — activo */}
-          <div className="border border-accent bg-surface p-6">
+          {/* Windows activo */}
+          <div className="border-2 border-accent bg-white p-6 rounded-sm">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <p className="text-sm font-medium text-[#efefef]">Windows</p>
+                <p className="text-sm font-semibold text-text">Windows</p>
                 <p className="text-xs font-mono text-muted mt-0.5">v1.0.0 · 2025</p>
               </div>
-              <span className="text-[10px] font-mono text-accent border border-accent px-2 py-0.5">Disponible</span>
+              <span className="text-[10px] font-mono text-accent border border-accent bg-accent-light px-2 py-0.5 rounded-sm">Disponible</span>
             </div>
             <a
               href="https://github.com/vacashot/zahorifields-web/releases/download/v1.0.0/ZahoriFields_v1.0.0_Windows.zip"
@@ -66,70 +51,59 @@ export default function Download() {
             <p className="text-[11px] text-muted mt-3 text-center">Windows · ~144 MB · v1.0.0</p>
           </div>
 
-          {/* macOS — próximamente */}
           {['macOS', 'Linux'].map((os) => (
-            <div key={os} className="border border-border p-6 opacity-50">
+            <div key={os} className="border border-border bg-white p-6 rounded-sm opacity-50">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <p className="text-sm font-medium text-[#efefef]">{os}</p>
+                  <p className="text-sm font-semibold text-text">{os}</p>
                   <p className="text-xs font-mono text-muted mt-0.5">— · —</p>
                 </div>
-                <span className="text-[10px] font-mono text-muted border border-border px-2 py-0.5">Próximamente</span>
+                <span className="text-[10px] font-mono text-muted border border-border px-2 py-0.5 rounded-sm">Próximamente</span>
               </div>
-              <button disabled className="btn-ghost w-full justify-center cursor-not-allowed opacity-50">
-                No disponible
-              </button>
+              <button disabled className="btn-ghost w-full justify-center cursor-not-allowed opacity-60">No disponible</button>
             </div>
           ))}
         </div>
 
-        {/* Nota instalación */}
-        <div className="border border-border p-5 flex gap-4 mb-14">
+        {/* Nota */}
+        <div className="border border-border bg-accent-light p-5 flex gap-4 mb-14 rounded-sm">
           <Terminal className="w-4 h-4 text-accent mt-0.5 shrink-0" />
           <div>
-            <p className="text-sm text-[#efefef] font-medium mb-1">Instalación en un paso</p>
+            <p className="text-sm text-text font-medium mb-1">Instalación en un paso</p>
             <p className="text-xs text-muted leading-relaxed">
-              Ejecuta el instalador <span className="font-mono text-[#efefef]">ZahoriFields-Setup.exe</span> y sigue
-              el asistente. No requiere permisos de administrador para la instalación de usuario.
+              Extrae el archivo ZIP en cualquier carpeta y ejecuta <span className="font-mono text-text">ZahoriFields.exe</span>. No requiere instalador ni permisos de administrador.
             </p>
           </div>
         </div>
 
         {/* Requisitos */}
         <span className="section-label">Requisitos del sistema</span>
-        <div className="border border-border mb-14">
-          <div className="grid grid-cols-3 bg-surface px-5 py-3 border-b border-border">
+        <div className="border border-border bg-white rounded-sm mb-14 overflow-hidden">
+          <div className="grid grid-cols-3 bg-surface-2 px-5 py-3 border-b border-border">
             <p className="text-xs font-mono text-muted"></p>
             <p className="text-xs font-mono text-muted">Mínimo</p>
             <p className="text-xs font-mono text-muted">Recomendado</p>
           </div>
           {requirements.map(({ label, min, rec }, i) => (
-            <div
-              key={label}
-              className={`grid grid-cols-3 px-5 py-3.5 ${i < requirements.length - 1 ? 'border-b border-border' : ''}`}
-            >
+            <div key={label} className={`grid grid-cols-3 px-5 py-3.5 ${i < requirements.length - 1 ? 'border-b border-border' : ''}`}>
               <p className="text-xs text-muted">{label}</p>
-              <p className="text-xs text-[#efefef] flex items-center gap-1.5">
-                <AlertCircle className="w-3 h-3 text-muted shrink-0" /> {min}
-              </p>
-              <p className="text-xs text-[#efefef] flex items-center gap-1.5">
-                <CheckCircle className="w-3 h-3 text-accent shrink-0" /> {rec}
-              </p>
+              <p className="text-xs text-text flex items-center gap-1.5"><AlertCircle className="w-3 h-3 text-muted shrink-0" />{min}</p>
+              <p className="text-xs text-text flex items-center gap-1.5"><CheckCircle className="w-3 h-3 text-accent shrink-0" />{rec}</p>
             </div>
           ))}
         </div>
 
         {/* FAQ */}
         <span className="section-label">Preguntas frecuentes</span>
-        <div className="border border-border">
+        <div className="border border-border bg-white rounded-sm overflow-hidden">
           {faqs.map(({ q, a }, i) => (
             <div key={i} className={i < faqs.length - 1 ? 'border-b border-border' : ''}>
               <button
-                className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-surface transition-colors"
+                className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-surface-2 transition-colors"
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
               >
-                <span className="text-sm text-[#efefef]">{q}</span>
-                <span className="text-muted font-mono text-lg leading-none">{openFaq === i ? '−' : '+'}</span>
+                <span className="text-sm text-text font-medium">{q}</span>
+                <span className="text-muted font-mono text-lg leading-none shrink-0">{openFaq === i ? '−' : '+'}</span>
               </button>
               {openFaq === i && (
                 <div className="px-5 pb-4">
