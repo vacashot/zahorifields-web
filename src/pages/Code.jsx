@@ -9,8 +9,6 @@ const stats = [
 
 const repos = [
   { name: 'zahorifields', desc: 'Aplicación principal. Motor de procesamiento multiespectral, índices de vegetación y calculadora ULV.', lang: 'Python', main: true },
-  { name: 'zahorifields-web', desc: 'Este sitio web. Construido con React + Vite + Tailwind CSS.', lang: 'JavaScript', main: false },
-  { name: 'zahorifields-indices', desc: 'Librería de índices de vegetación. Más de 50 implementaciones documentadas.', lang: 'Python', main: false },
 ]
 
 export default function Code() {
