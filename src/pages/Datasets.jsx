@@ -1,18 +1,82 @@
-import { ExternalLink, Check, X } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 
 const datasets = [
-  { name: 'MicaSense RedEdge-MX — Cereal', camera: 'MicaSense', images: 320, size: '1.8 GB', gps: true, gcp: false, rtk: false, notes: 'Dataset de inicio. Cebada en estado vegetativo.', url: '#' },
-  { name: 'Sentera 6X — Viñedo', camera: 'Sentera', images: 210, size: '950 MB', gps: true, gcp: true, rtk: false, notes: 'Con puntos de control en suelo incluidos.', url: '#' },
-  { name: 'MAPIR Survey3 — Olivar', camera: 'MAPIR', images: 480, size: '2.3 GB', gps: true, gcp: false, rtk: false, notes: 'Captura en plena floración. Útil para EBI.', url: '#' },
-  { name: 'Tetracam ADC Lite — Maíz', camera: 'Tetracam', images: 155, size: '620 MB', gps: true, gcp: false, rtk: false, notes: 'Para pruebas de NDVI y SAVI.', url: '#' },
-  { name: 'MicaSense Altum — Estrés Hídrico', camera: 'MicaSense', images: 270, size: '3.1 GB', gps: true, gcp: true, rtk: true, notes: 'Dataset térmico + multiespectral. Referencia CWSI.', url: '#' },
-  { name: 'DJI P4 Multispectral — Remolacha', camera: 'DJI P4M', images: 390, size: '1.5 GB', gps: true, gcp: false, rtk: false, notes: 'Incluye panel de calibración.', url: '#' },
+  {
+    name: 'MicaSense_Altum_Cereal_2024.tif',
+    sensor: 'MicaSense Altum',
+    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: 6 },
+    range: '0 – 1',
+    size: '3.1 GB',
+    notes: 'Reflectancia normalizada. Referencia para CWSI.',
+    url: '#',
+  },
+  {
+    name: 'MicaSense_RedEdge_Vinedo_2024.tif',
+    sensor: 'MicaSense RedEdge-MX',
+    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: null },
+    range: '0 – 65535',
+    size: '1.8 GB',
+    notes: '16-bit sin calibrar. Viñedo en estado vegetativo.',
+    url: '#',
+  },
+  {
+    name: 'Sentera_6X_Olivar_2024.tif',
+    sensor: 'Sentera 6X',
+    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: null },
+    range: '0 – 1',
+    size: '950 MB',
+    notes: 'Calibrada con panel. GCP incluidos.',
+    url: '#',
+  },
+  {
+    name: 'MAPIR_Survey3_Maiz_RGN.tif',
+    sensor: 'MAPIR Survey3',
+    bands: { red: 1, green: 2, blue: null, redEdge: null, nir: 3, thermal: null },
+    range: '0 – 255',
+    size: '2.3 GB',
+    notes: '8-bit RGN. Floración. Útil para EBI.',
+    url: '#',
+  },
+  {
+    name: 'Tetracam_ADC_Remolacha.tif',
+    sensor: 'Tetracam ADC Lite',
+    bands: { red: null, green: 1, blue: null, redEdge: null, nir: 2, thermal: null },
+    range: '0 – 1023',
+    size: '620 MB',
+    notes: '10-bit. Para pruebas de NDVI y SAVI.',
+    url: '#',
+  },
+  {
+    name: 'DJI_P4M_Cereal_2024.tif',
+    sensor: 'DJI P4 Multispectral',
+    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: null },
+    range: '0 – 65535',
+    size: '1.5 GB',
+    notes: 'Incluye panel de calibración. Cebada.',
+    url: '#',
+  },
 ]
 
-function Bool({ v }) {
-  return v
-    ? <Check className="w-3.5 h-3.5 text-accent mx-auto" />
-    : <X className="w-3.5 h-3.5 text-muted mx-auto opacity-30" />
+const bandInfo = [
+  { color: '#e84040', label: 'Red', desc: 'Luz roja visible. Clave para detectar clorofila y calcular NDVI.' },
+  { color: '#4caf50', label: 'Green', desc: 'Luz verde visible. Usada en índices de biomasa y vigor.' },
+  { color: '#2196f3', label: 'Blue', desc: 'Luz azul visible. Complementa índices RGB y detección de suelo desnudo.' },
+  { color: '#c47a72', label: 'Red Edge', desc: 'Zona de transición entre rojo e infrarrojo. Muy sensible al estrés vegetal temprano.' },
+  { color: '#7c4dff', label: 'NIR', desc: 'Infrarrojo cercano, invisible al ojo humano. Esencial para NDVI, NDRE y la mayoría de índices.' },
+  { color: '#ff9800', label: 'Thermal', desc: 'Temperatura del dosel vegetal. Usada para calcular el estrés hídrico (CWSI).' },
+]
+
+const rangeInfo = [
+  { range: '0 – 1', desc: 'Reflectancia normalizada. Indica qué porción de luz refleja la superficie. Listo para calcular índices directamente.' },
+  { range: '0 – 255', desc: 'Imagen de 8 bits. Formato típico de cámaras RGB o MAPIR. Requiere calibración antes de calcular índices.' },
+  { range: '0 – 65535', desc: 'Imagen de 16 bits sin procesar. Mayor precisión radiométrica. Necesita calibración con panel de referencia.' },
+  { range: '0 – 1023', desc: 'Imagen de 10 bits (Tetracam). Rango intermedio. Requiere calibración antes de su uso.' },
+]
+
+function BandCell({ v }) {
+  return v !== null
+    ? <td className="px-3 py-3.5 text-center font-mono text-xs font-medium text-accent">{v}</td>
+    : <td className="px-3 py-3.5 text-center font-mono text-xs text-muted opacity-30">—</td>
 }
 
 export default function Datasets() {
@@ -23,42 +87,52 @@ export default function Datasets() {
           <span className="section-label">Imágenes de muestra</span>
           <h1 className="text-4xl font-semibold tracking-tight text-text mb-3">Datasets</h1>
           <p className="text-muted text-sm max-w-lg">
-            Ortofotos y vuelos de muestra de distintas cámaras para practicar con ZahoriFields.
+            Ortofotos de distintas cámaras para practicar con ZahoriFields.
             Descarga, procesa y aprende siguiendo los tutoriales de la documentación.
           </p>
         </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-6 py-14">
+
+        {/* Tabla */}
         <div className="overflow-x-auto border border-border bg-white rounded-sm">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm" style={{ tableLayout: 'auto' }}>
             <thead>
-              <tr className="border-b border-border bg-surface-2">
-                <th className="text-left px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider">Nombre</th>
-                <th className="text-left px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider">Cámara</th>
-                <th className="text-right px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider">Imágenes</th>
-                <th className="text-right px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider">Tamaño</th>
-                <th className="text-center px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider">GPS</th>
-                <th className="text-center px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider">GCP</th>
-                <th className="text-center px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider">RTK</th>
-                <th className="text-left px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider">Notas</th>
-                <th className="px-4 py-3"></th>
+              <tr>
+                <th rowSpan={2} className="text-left px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider bg-surface-2 border-b border-border align-bottom whitespace-nowrap">Nombre del archivo</th>
+                <th rowSpan={2} className="text-left px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider bg-surface-2 border-b border-border align-bottom whitespace-nowrap">Sensor</th>
+                <th colSpan={6} className="text-center px-3 py-2 text-[10px] font-mono tracking-wider bg-accent-light text-accent font-medium border-b border-border border-l border-accent/20 uppercase">Bandas</th>
+                <th rowSpan={2} className="text-left px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider bg-surface-2 border-b border-border border-l border-border align-bottom whitespace-nowrap">Rango valores</th>
+                <th rowSpan={2} className="text-right px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider bg-surface-2 border-b border-border align-bottom">Tamaño</th>
+                <th rowSpan={2} className="text-left px-4 py-3 text-[11px] font-mono text-muted font-normal tracking-wider bg-surface-2 border-b border-border align-bottom">Notas</th>
+                <th rowSpan={2} className="bg-surface-2 border-b border-border"></th>
+              </tr>
+              <tr>
+                {['Red', 'Green', 'Blue', 'Red Edge', 'NIR', 'Thermal'].map((b) => (
+                  <th key={b} className="text-center px-3 py-2 text-[10px] font-mono text-accent font-normal bg-accent-light border-b border-border whitespace-nowrap">{b}</th>
+                ))}
               </tr>
             </thead>
             <tbody>
               {datasets.map((d, i) => (
-                <tr key={d.name} className={`border-b border-border hover:bg-surface-2 transition-colors ${i === datasets.length - 1 ? 'border-0' : ''}`}>
-                  <td className="px-4 py-3.5 text-text font-medium whitespace-nowrap">{d.name}</td>
-                  <td className="px-4 py-3.5 text-muted font-mono text-xs whitespace-nowrap">{d.camera}</td>
-                  <td className="px-4 py-3.5 text-muted font-mono text-xs text-right">{d.images}</td>
-                  <td className="px-4 py-3.5 text-muted font-mono text-xs text-right whitespace-nowrap">{d.size}</td>
-                  <td className="px-4 py-3.5"><Bool v={d.gps} /></td>
-                  <td className="px-4 py-3.5"><Bool v={d.gcp} /></td>
-                  <td className="px-4 py-3.5"><Bool v={d.rtk} /></td>
-                  <td className="px-4 py-3.5 text-muted text-xs max-w-[200px]">{d.notes}</td>
+                <tr key={d.name} className={`hover:bg-surface-2 transition-colors ${i < datasets.length - 1 ? 'border-b border-border' : ''}`}>
+                  <td className="px-4 py-3.5 font-mono text-xs text-text font-medium whitespace-nowrap">{d.name}</td>
+                  <td className="px-4 py-3.5 text-xs text-muted whitespace-nowrap">{d.sensor}</td>
+                  <BandCell v={d.bands.red} />
+                  <BandCell v={d.bands.green} />
+                  <BandCell v={d.bands.blue} />
+                  <BandCell v={d.bands.redEdge} />
+                  <BandCell v={d.bands.nir} />
+                  <BandCell v={d.bands.thermal} />
+                  <td className="px-4 py-3.5 border-l border-border">
+                    <span className="font-mono text-[11px] bg-surface-2 border border-border px-2 py-0.5 rounded-sm text-muted whitespace-nowrap">{d.range}</span>
+                  </td>
+                  <td className="px-4 py-3.5 text-xs text-muted font-mono text-right whitespace-nowrap">{d.size}</td>
+                  <td className="px-4 py-3.5 text-xs text-muted max-w-[160px]">{d.notes}</td>
                   <td className="px-4 py-3.5">
-                    <a href={d.url} className="inline-flex items-center gap-1 text-xs text-muted hover:text-accent transition-colors" onClick={(e) => e.preventDefault()}>
-                      <ExternalLink className="w-3 h-3" />
+                    <a href={d.url} onClick={(e) => e.preventDefault()} className="text-muted hover:text-accent transition-colors">
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </td>
                 </tr>
@@ -67,11 +141,57 @@ export default function Datasets() {
           </table>
         </div>
 
-        <p className="text-xs text-muted mt-6">
+        <p className="text-xs text-muted mt-4 mb-14">
           ¿Quieres contribuir un dataset?{' '}
           <a href="/comunidad" className="text-accent hover:underline">Contáctanos en la comunidad</a>{' '}
           o abre un Pull Request en el repositorio.
         </p>
+
+        {/* Leyenda */}
+        <div className="grid md:grid-cols-2 gap-5">
+
+          {/* Bandas */}
+          <div className="border border-border bg-white rounded-sm p-6">
+            <p className="text-xs font-mono tracking-widest text-muted uppercase mb-5">¿Qué significan las bandas?</p>
+            <div className="space-y-3.5">
+              {bandInfo.map(({ color, label, desc }) => (
+                <div key={label} className="flex items-start gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full mt-1 shrink-0" style={{ backgroundColor: color }} />
+                  <div>
+                    <span className="text-xs font-medium text-text">{label} </span>
+                    <span className="text-xs text-muted leading-relaxed">{desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 bg-accent-light border border-accent/20 rounded-sm p-3">
+              <p className="text-xs text-accent leading-relaxed">
+                El número en la tabla indica qué canal del archivo corresponde a esa banda.
+                Por ejemplo, "Red = 3" significa que la banda roja está guardada en el canal 3 del archivo.
+              </p>
+            </div>
+          </div>
+
+          {/* Rango de valores */}
+          <div className="border border-border bg-white rounded-sm p-6">
+            <p className="text-xs font-mono tracking-widest text-muted uppercase mb-5">¿Qué significa el rango de valores?</p>
+            <div className="space-y-4">
+              {rangeInfo.map(({ range, desc }) => (
+                <div key={range} className="flex items-start gap-3">
+                  <span className="font-mono text-[10px] bg-surface-2 border border-border px-2 py-0.5 rounded-sm text-accent whitespace-nowrap mt-0.5 shrink-0">{range}</span>
+                  <p className="text-xs text-muted leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 bg-accent-light border border-accent/20 rounded-sm p-3">
+              <p className="text-xs text-accent leading-relaxed">
+                Las imágenes con rango 0–1 ya están calibradas y puedes calcular índices directamente en ZahoriFields.
+                El resto requieren el paso de calibración radiométrica.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   )
