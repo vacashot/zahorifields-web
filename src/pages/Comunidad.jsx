@@ -37,7 +37,7 @@ export default function Comunidad() {
               </div>
               <h3 className="text-sm font-semibold text-text mb-2">{title}</h3>
               <p className="text-xs text-muted leading-relaxed mb-5">{desc}</p>
-              <a href={url} className="text-xs text-accent hover:underline inline-flex items-center gap-1">{label} →</a>
+              <a href={url} target="_blank" rel="noreferrer" className="text-xs text-accent hover:underline inline-flex items-center gap-1">{label} →</a>
             </div>
           ))}
         </div>
