@@ -37,7 +37,7 @@ export default function Home() {
       <section className="pt-36 pb-24 px-6 bg-white border-b border-border">
         <div className="max-w-5xl mx-auto">
           <span className="inline-block text-[11px] font-mono tracking-widest text-muted uppercase bg-surface-2 border border-border px-3 py-1 mb-8">
-            ZAHORI FIELDS · HERRAMIENTA GEOINFORMÁTICA LOCAL · TFM GEOINFORMÁTICA
+            ZAHORI FIELDS · HERRAMIENTA GEOINFORMÁTICA LOCAL
           </span>
 
           <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-6 text-text">
@@ -53,7 +53,7 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-3">
             <Link to="/download" className="btn-primary">
-              Ver funcionalidades <ArrowRight className="w-4 h-4" />
+              Descargar gratis <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/docs" className="btn-ghost">
               Documentación técnica
@@ -61,7 +61,7 @@ export default function Home() {
           </div>
 
           <p className="text-xs text-muted mt-6 font-mono">
-            Prototipo TFM · Windows · Ejecución local · Agricultura de precisión
+            Windows · Ejecución local · Agricultura de precisión
           </p>
         </div>
       </section>
