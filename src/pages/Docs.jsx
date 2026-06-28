@@ -8,7 +8,6 @@ const sidebar = [
   { section: 'Índices de vegetación', items: ['NDVI', 'NDRE', 'SAVI / MSAVI', 'Índices de agua', 'Índices de clorofila', 'Todos los índices (50+)'] },
   { section: 'Índices especializados', items: ['CWSI — Estrés hídrico', 'EBI — Índice de floración', 'Temperatura de dosel'] },
   { section: 'Dosificación variable', items: ['Mapas de prescripción', 'Calculadora ULV', 'Zonas de manejo', 'Exportar a campo'] },
-  { section: 'Instalación con Docker', items: ['¿Qué es Docker?', 'Requisitos', 'Instalación rápida', 'Docker Compose', 'Solución de problemas'] },
   { section: 'Tutoriales', items: ['Tutorial 1: NDVI desde cero', 'Tutorial 2: CWSI en cereal', 'Tutorial 3: Mapa de dosis ULV'] },
 ]
 
@@ -111,60 +110,6 @@ export default function Docs() {
           </p>
         </div>
 
-        {/* Docker */}
-        <div className="border-t border-border pt-10">
-          <h2 className="text-base font-semibold text-text mb-1 mt-0">Instalación con Docker</h2>
-          <p className="text-xs text-muted mb-6 leading-relaxed">
-            Docker permite ejecutar ZahoriFields en cualquier sistema operativo (Windows, macOS, Linux)
-            sin instalar Python ni dependencias. Todo viene empaquetado dentro del contenedor.
-          </p>
-
-          <h3 className="text-sm font-medium text-text mb-2">Requisitos</h3>
-          <ul className="space-y-1.5 mb-6">
-            {[
-              'Docker Desktop instalado — docker.com/get-docker',
-              '4 GB de RAM disponibles mínimo',
-              'Conexión a internet para descargar la imagen (solo la primera vez)',
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-2 text-xs text-muted">
-                <span className="text-accent mt-0.5 shrink-0">—</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <h3 className="text-sm font-medium text-text mb-2">Opción A — Un solo comando (recomendado)</h3>
-          <p className="text-xs text-muted mb-3">Sin descargar código. La imagen se descarga automáticamente desde Docker Hub:</p>
-          <div className="bg-[#1a1a1a] rounded-sm p-4 mb-6 overflow-x-auto">
-            <pre className="text-xs text-green-400 font-mono leading-relaxed">{`# Arrancar ZahoriFields
-docker run -p 8000:8000 neburelgrande/zahorifields:latest
-
-# Abrir en el navegador
-http://localhost:8000`}</pre>
-          </div>
-
-          <h3 className="text-sm font-medium text-text mb-2">Opción B — Docker Compose (datos persistentes)</h3>
-          <p className="text-xs text-muted mb-3">Descarga el <code className="font-mono bg-surface-2 px-1.5 py-0.5 rounded-sm border border-border text-text">docker-compose.yml</code> y ejecuta:</p>
-          <div className="bg-[#1a1a1a] rounded-sm p-4 mb-6 overflow-x-auto">
-            <pre className="text-xs text-green-400 font-mono leading-relaxed">{`docker compose up -d
-
-# Detener
-docker compose down`}</pre>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            {[
-              { title: 'Datos persistentes', desc: 'Las imágenes subidas y los resultados se guardan en volúmenes Docker. No se pierden al reiniciar.' },
-              { title: 'Sin instalación', desc: 'No necesitas Python, Node ni ninguna dependencia. Docker lo gestiona todo internamente.' },
-              { title: 'Multiplataforma', desc: 'Funciona igual en Windows, macOS y Linux. Ideal para servidores y entornos de investigación.' },
-            ].map(({ title, desc }) => (
-              <div key={title} className="border border-border bg-white rounded-sm p-4">
-                <p className="text-xs font-medium text-text mb-1">{title}</p>
-                <p className="text-xs text-muted leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   )
