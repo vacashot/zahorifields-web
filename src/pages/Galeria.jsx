@@ -89,19 +89,19 @@ export default function Galeria() {
           </button>
 
           {/* Media */}
-          <div className="max-w-5xl max-h-[85vh] px-16" onClick={(e) => e.stopPropagation()}>
+          <div className="w-[95vw] max-h-[92vh] px-12" onClick={(e) => e.stopPropagation()}>
             {items[active].type === 'video' ? (
               <video
                 src={items[active].src}
                 controls
                 autoPlay
-                className="max-h-[80vh] max-w-full mx-auto rounded-sm"
+                className="max-h-[88vh] max-w-full mx-auto rounded-sm"
               />
             ) : (
               <img
                 src={items[active].src}
                 alt={items[active].caption}
-                className="max-h-[80vh] max-w-full mx-auto rounded-sm object-contain"
+                className="max-h-[88vh] max-w-full mx-auto rounded-sm object-contain"
               />
             )}
             {items[active].caption && (
