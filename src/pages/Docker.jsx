@@ -116,7 +116,27 @@ export default function Docker() {
           ))}
         </div>
 
-        <div className="border border-border bg-accent-light rounded-sm p-5 mt-14">
+        {/* Parar / arrancar */}
+        <div className="border border-border bg-white rounded-sm mt-14">
+          <div className="px-6 py-5 border-b border-border">
+            <h2 className="text-base font-semibold text-text">Parar y arrancar</h2>
+          </div>
+          <div className="px-6 py-5 space-y-6">
+            <div>
+              <p className="text-sm font-medium text-text mb-1">Opción 1 — Desde Docker Desktop <span className="text-xs font-normal text-muted">(más fácil)</span></p>
+              <p className="text-xs text-muted leading-relaxed">Abre Docker Desktop → ve a <strong className="text-text">Containers</strong> → haz clic en el botón de stop <strong className="text-text">⏹</strong> al lado del contenedor <code className="font-mono bg-surface-2 px-1.5 py-0.5 rounded-sm border border-border text-text">zahorifields</code>.</p>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-text mb-3">Opción 2 — Desde la terminal</p>
+              <p className="text-xs text-muted mb-2">Para detenerlo:</p>
+              <CopyBlock code="docker stop zahorifields" />
+              <p className="text-xs text-muted mb-2">Para volver a arrancarlo:</p>
+              <CopyBlock code="docker start zahorifields" />
+            </div>
+          </div>
+        </div>
+
+        <div className="border border-border bg-accent-light rounded-sm p-5 mt-6">
           <p className="text-sm text-text font-medium mb-1">¿Algo no funciona?</p>
           <p className="text-xs text-muted leading-relaxed">
             Asegúrate de que Docker Desktop está abierto y la ballena aparece en la barra de tareas antes de ejecutar el comando.
