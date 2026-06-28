@@ -6,6 +6,7 @@ import Download from './pages/Download'
 import Datasets from './pages/Datasets'
 import Docs from './pages/Docs'
 import Comunidad from './pages/Comunidad'
+import Swag from './pages/Swag'
 import Code from './pages/Code'
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/datasets" element={<Datasets />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/comunidad" element={<Comunidad />} />
+            <Route path="/swag" element={<Swag />} />
             <Route path="/code" element={<Code />} />
           </Routes>
         </main>

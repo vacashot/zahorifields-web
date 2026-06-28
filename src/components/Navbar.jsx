@@ -6,6 +6,7 @@ const links = [
   { to: '/datasets', label: 'Datasets' },
   { to: '/docs', label: 'Docs' },
   { to: '/comunidad', label: 'Comunidad' },
+  { to: '/swag', label: 'Swag' },
   { to: '/code', label: 'Code' },
 ]
 
