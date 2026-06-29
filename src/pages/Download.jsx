@@ -13,7 +13,7 @@ const requirements = [
 const faqs = [
   { q: '¿Funciona sin conexión a internet?', a: 'Sí. ZahoriFields procesa todas las imágenes de forma local en tu equipo. No se envían datos a ningún servidor externo.' },
   { q: '¿Qué cámaras son compatibles?', a: 'MicaSense RedEdge y Altum, Sentera, MAPIR, Tetracam y cualquier cámara RGB estándar. También imágenes térmicas FLIR y DJI Zenmuse.' },
-  { q: '¿Está disponible para Mac o Linux?', a: 'Por ahora solo para Windows. Las versiones para otros sistemas operativos están en desarrollo.' },
+  { q: '¿Está disponible para Mac o Linux?', a: 'El instalador .exe es solo para Windows. Para Mac y Linux está disponible la versión Docker, que funciona en cualquier sistema operativo.' },
   { q: '¿Es de pago?', a: 'No. ZahoriFields es gratuito y de código abierto, desarrollado por ITACYL como herramienta pública para investigadores y agricultores.' },
 ]
 
