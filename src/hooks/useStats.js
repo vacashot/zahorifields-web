@@ -7,9 +7,6 @@ export function useDownloadCount() {
   const [count, setCount] = useState(null)
 
   useEffect(() => {
-    const cached = sessionStorage.getItem('zf_downloads')
-    if (cached) { setCount(Number(cached)); return }
-
     fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases`)
       .then(r => r.json())
       .then(releases => {
@@ -17,7 +14,6 @@ export function useDownloadCount() {
         const total = releases.reduce((sum, release) =>
           sum + (release.assets || []).reduce((s, a) => s + (a.download_count || 0), 0), 0)
         setCount(total)
-        sessionStorage.setItem('zf_downloads', total)
       })
       .catch(() => {})
   }, [])
