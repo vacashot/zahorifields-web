@@ -1,6 +1,36 @@
 import { useState } from 'react'
-import { Download as DownloadIcon, Terminal, CheckCircle, AlertCircle, ArrowRight } from 'lucide-react'
+import { Download as DownloadIcon, Terminal, CheckCircle, AlertCircle, ArrowRight, ShieldCheck, ShieldX, AlertTriangle } from 'lucide-react'
 import { Link } from 'react-router-dom'
+
+const OFFICIAL_HASH = '28AA513A060F866C707DFA4B3E1A351397E394AEFA9C12906951B669631AE857'
+
+function HashVerifier() {
+  const [input, setInput] = useState('')
+  const normalized = input.trim().toUpperCase()
+  const match = normalized === OFFICIAL_HASH
+  const checked = normalized.length === 64
+
+  return (
+    <div className="mt-3 bg-surface-2 border border-border rounded-sm px-3 py-2">
+      <p className="text-[10px] font-mono text-muted mb-1">SHA-256 oficial</p>
+      <p className="text-[10px] font-mono text-text break-all select-all mb-3">{OFFICIAL_HASH}</p>
+      <p className="text-[10px] text-muted mb-1">Pega aquí el hash de tu archivo para verificar:</p>
+      <input
+        type="text"
+        value={input}
+        onChange={e => setInput(e.target.value)}
+        placeholder="Pega el hash SHA-256..."
+        className="w-full font-mono text-[10px] bg-white border border-border rounded-sm px-2 py-1.5 text-text placeholder:text-muted focus:outline-none focus:border-accent"
+      />
+      {checked && (
+        <div className={`mt-2 flex items-center gap-1.5 text-[10px] font-medium ${match ? 'text-accent' : 'text-red-500'}`}>
+          {match ? <ShieldCheck className="w-3.5 h-3.5" /> : <ShieldX className="w-3.5 h-3.5" />}
+          {match ? '✅ El archivo es auténtico' : '❌ El hash no coincide — no ejecutes este archivo'}
+        </div>
+      )}
+    </div>
+  )
+}
 
 const requirements = [
   { label: 'Sistema operativo', min: 'Windows 10 64-bit', rec: 'Windows 11 64-bit' },
@@ -50,10 +80,13 @@ export default function Download() {
               Descargar .zip
             </a>
             <p className="text-[11px] text-muted mt-3 text-center">Windows · ~144 MB · v1.1</p>
-            <div className="mt-3 bg-surface-2 border border-border rounded-sm px-3 py-2">
-              <p className="text-[10px] font-mono text-muted mb-0.5">SHA-256</p>
-              <p className="text-[10px] font-mono text-text break-all select-all">28AA513A060F866C707DFA4B3E1A351397E394AEFA9C12906951B669631AE857</p>
+            <div className="mt-3 flex items-start gap-2 bg-yellow-50 border border-yellow-200 rounded-sm px-3 py-2">
+              <AlertTriangle className="w-3.5 h-3.5 text-yellow-600 mt-0.5 shrink-0" />
+              <p className="text-[10px] text-yellow-800 leading-relaxed">
+                Windows puede mostrar un aviso de SmartScreen al abrir el programa. Es normal en software sin firma comercial. Haz clic en "Más información" → "Ejecutar de todas formas".
+              </p>
             </div>
+            <HashVerifier />
           </div>
 
           {/* Docker */}
