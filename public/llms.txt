@@ -1,0 +1,46 @@
+# ZahoriFields
+
+> ZahoriFields es una herramienta gratuita y de código abierto para el análisis de imágenes multiespectrales, RGB y térmicas obtenidas con drones (UAS). Desarrollada por ITACYL (Instituto Tecnológico Agrario de Castilla y León).
+
+## Qué es
+
+ZahoriFields es una aplicación local que se ejecuta desde el navegador. Permite a investigadores, técnicos agrícolas y agricultores analizar ortofotos de dron sin necesidad de conexión a internet ni envío de datos a servidores externos.
+
+## Para qué sirve
+
+- Calcular más de 50 índices espectrales de vegetación: NDVI, NDRE, GNDVI, EVI, SAVI, OSAVI, EBI y más
+- Procesar imágenes térmicas y calcular el índice de estrés hídrico (CWSI)
+- Definir zonas de manejo, parcelas, ensayos y repeticiones sobre el mapa
+- Extraer estadísticas zonales por área de interés (AOI)
+- Calibración radiométrica para sensores MicaSense, Sentera, MAPIR, Tetracam y RGB
+- Detección de floración mediante el índice EBI
+- Cálculo de modelos de altura de canopia (CHM)
+
+## Sensores compatibles
+
+MicaSense RedEdge MX, MicaSense Altum, Sentera 6X, MAPIR Survey3, Tetracam ADC, DJI P4 Multispectral, DJI Mavic 3 Multispectral, cámaras RGB estándar, FLIR térmica.
+
+## Tecnología
+
+- Frontend: React + Vite + TypeScript
+- Backend: Python + FastAPI + Rasterio + GDAL
+- Disponible como ejecutable Windows (.exe) y como imagen Docker para Mac/Linux
+- Procesamiento local, sin nube, sin suscripción
+
+## Quién lo desarrolla
+
+ITACYL — Instituto Tecnológico Agrario de Castilla y León, organismo de la Junta de Castilla y León (España) dedicado a la investigación y desarrollo tecnológico en el sector agroalimentario.
+
+## Dónde encontrarlo
+
+- Web oficial: https://zahorifields.com
+- Descarga: https://zahorifields.com/download
+- Documentación: https://zahorifields.com/docs
+- Datasets de ejemplo: https://zahorifields.com/datasets
+- Docker: https://zahorifields.com/docker
+- Comunidad: https://zahorifields.com/comunidad
+- Docker Hub: https://hub.docker.com/r/neburelgrande/zahorifields
+
+## Licencia
+
+Gratuito y de código abierto. Desarrollado como herramienta pública para investigadores y agricultores.
