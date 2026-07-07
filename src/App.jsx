@@ -10,6 +10,7 @@ import Swag from './pages/Swag'
 import Code from './pages/Code'
 import Docker from './pages/Docker'
 import Galeria from './pages/Galeria'
+import BlogCWSI from './pages/BlogCWSI'
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/code" element={<Code />} />
             <Route path="/docker" element={<Docker />} />
             <Route path="/galeria" element={<Galeria />} />
+            <Route path="/blog/cwsi" element={<BlogCWSI />} />
           </Routes>
         </main>
         <Footer />
