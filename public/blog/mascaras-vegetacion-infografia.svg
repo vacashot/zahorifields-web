@@ -1,0 +1,265 @@
+<svg viewBox="0 0 800 580" xmlns="http://www.w3.org/2000/svg" role="img" font-family="system-ui,-apple-system,sans-serif">
+  <title>Infografía Máscaras de Vegetación — 4 estrategias con ZahoriFields</title>
+  <desc>Las 4 estrategias para crear máscaras de vegetación a partir de ortofotos de dron: índice espectral, color HSV, umbral térmico y método mixto</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F1F1A"/>
+      <stop offset="100%" stop-color="#091610"/>
+    </linearGradient>
+    <linearGradient id="ndviGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#7C2D12"/>
+      <stop offset="35%"  stop-color="#D97706"/>
+      <stop offset="60%"  stop-color="#86EFAC"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+    <linearGradient id="thermalGrad2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#1D4ED8"/>
+      <stop offset="40%"  stop-color="#22C55E"/>
+      <stop offset="70%"  stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="580" fill="url(#bg2)" rx="12"/>
+  <rect width="800" height="580" fill="none" stroke="#1E3B30" stroke-width="1.5" rx="12"/>
+
+  <!-- HEADER -->
+  <text x="400" y="38"  text-anchor="middle" fill="#A3C4A0" font-size="10.5" letter-spacing="3.5">PROCESAMIENTO DE ORTOFOTOS DE DRON</text>
+  <text x="400" y="68"  text-anchor="middle" fill="#E8F5E2" font-size="26" font-weight="700" letter-spacing="0.5">MÁSCARAS DE VEGETACIÓN</text>
+  <text x="400" y="88"  text-anchor="middle" fill="#5A8A70" font-size="11" letter-spacing="1.5">Separar píxeles de cultivo del suelo y fondo · 4 estrategias</text>
+  <line x1="60" y1="104" x2="740" y2="104" stroke="#1E3B30" stroke-width="1"/>
+
+  <!-- CARD 1: ÍNDICE ESPECTRAL -->
+  <rect x="60"  y="115" width="330" height="195" rx="7" fill="#0C2018" stroke="#22C55E" stroke-width="1.2"/>
+  <rect x="60"  y="115" width="330" height="28"  rx="7" fill="#0F2E1E"/>
+  <rect x="60"  y="129" width="330" height="14"  fill="#0F2E1E"/>
+  <text x="75"  y="133" fill="#22C55E" font-size="9" letter-spacing="2" font-weight="600">MÉTODO 01</text>
+  <text x="355" y="133" text-anchor="end" fill="#3D7A5A" font-size="9">Multiespectral · RGB</text>
+
+  <text x="75"  y="158" fill="#E8F5E2" font-size="13.5" font-weight="600">Índice espectral</text>
+  <text x="75"  y="173" fill="#86EFAC" font-size="11" font-style="italic">NDVI, ExG, VARI, NGRDI…</text>
+
+  <text x="75"  y="194" fill="#5A8A70" font-size="9">Barra NDVI  –1 → +1</text>
+  <rect x="75"  y="198" width="200" height="14" rx="3" fill="url(#ndviGrad)"/>
+  <line x1="195" y1="195" x2="195" y2="215" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2,2"/>
+  <text x="197"  y="213" fill="#FFF" font-size="8.5">umbral</text>
+  <text x="75"   y="225" fill="#5A8A70" font-size="8.5">–1</text>
+  <text x="272"  y="225" fill="#5A8A70" font-size="8.5">+1</text>
+
+  <text x="75"  y="243" fill="#3D7A5A" font-size="8.5">Imagen → Máscara</text>
+  <g transform="translate(75,248)">
+    <rect x="0"  y="0"  width="11" height="11" fill="#6B4226" rx="1"/>
+    <rect x="13" y="0"  width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="0"  width="11" height="11" fill="#16A34A" rx="1"/>
+    <rect x="39" y="0"  width="11" height="11" fill="#9A6B3A" rx="1"/>
+    <rect x="52" y="0"  width="11" height="11" fill="#15803D" rx="1"/>
+    <rect x="0"  y="13" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="13" y="13" width="11" height="11" fill="#7C4A1E" rx="1"/>
+    <rect x="26" y="13" width="11" height="11" fill="#166534" rx="1"/>
+    <rect x="39" y="13" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="52" y="13" width="11" height="11" fill="#5A3A1A" rx="1"/>
+    <rect x="0"  y="26" width="11" height="11" fill="#15803D" rx="1"/>
+    <rect x="13" y="26" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="26" width="11" height="11" fill="#6B4226" rx="1"/>
+    <rect x="39" y="26" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="52" y="26" width="11" height="11" fill="#166534" rx="1"/>
+  </g>
+  <text x="148" y="275" fill="#3D7A5A" font-size="14">→</text>
+  <g transform="translate(168,248)">
+    <rect x="0"  y="0"  width="11" height="11" fill="#111" rx="1"/>
+    <rect x="13" y="0"  width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="0"  width="11" height="11" fill="#16A34A" rx="1"/>
+    <rect x="39" y="0"  width="11" height="11" fill="#111" rx="1"/>
+    <rect x="52" y="0"  width="11" height="11" fill="#15803D" rx="1"/>
+    <rect x="0"  y="13" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="13" y="13" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="26" y="13" width="11" height="11" fill="#166534" rx="1"/>
+    <rect x="39" y="13" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="52" y="13" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="0"  y="26" width="11" height="11" fill="#15803D" rx="1"/>
+    <rect x="13" y="26" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="26" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="39" y="26" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="52" y="26" width="11" height="11" fill="#166534" rx="1"/>
+  </g>
+  <text x="75"  y="305" fill="#5A8A70" font-size="9">píxel vegetal si Índice &gt; umbral (ej. NDVI &gt; 0.15)</text>
+
+  <!-- CARD 2: COLOR HSV -->
+  <rect x="410" y="115" width="330" height="195" rx="7" fill="#0C2018" stroke="#D97706" stroke-width="1.2"/>
+  <rect x="410" y="115" width="330" height="28"  rx="7" fill="#1F1A08"/>
+  <rect x="410" y="129" width="330" height="14"  fill="#1F1A08"/>
+  <text x="425" y="133" fill="#D97706" font-size="9" letter-spacing="2" font-weight="600">MÉTODO 02</text>
+  <text x="735" y="133" text-anchor="end" fill="#7A5A1A" font-size="9">Solo imagen RGB</text>
+
+  <text x="425" y="158" fill="#E8F5E2" font-size="13.5" font-weight="600">Color HSV</text>
+  <text x="425" y="173" fill="#FDE68A" font-size="11" font-style="italic">Hue · Saturation · Value</text>
+
+  <text x="425" y="194" fill="#7A5A1A" font-size="9">Rango de Tono (Hue) aceptado</text>
+  <rect x="425" y="198" width="200" height="14" rx="3" fill="#111"/>
+  <rect x="425" y="198" width="22"  height="14" fill="#EF4444" rx="2"/>
+  <rect x="447" y="198" width="22"  height="14" fill="#F97316"/>
+  <rect x="469" y="198" width="22"  height="14" fill="#EAB308"/>
+  <rect x="491" y="196" width="67"  height="18" fill="#22C55E" rx="2" stroke="#FFF" stroke-width="1.5"/>
+  <text x="507" y="208" text-anchor="middle" fill="#fff" font-size="7.5">✓ vegetación</text>
+  <rect x="558" y="198" width="22"  height="14" fill="#06B6D4"/>
+  <rect x="580" y="198" width="22"  height="14" fill="#6366F1"/>
+  <rect x="602" y="198" width="23"  height="14" fill="#EF4444" rx="2"/>
+  <text x="491" y="226" fill="#22C55E" font-size="8.5">40°</text>
+  <text x="549" y="226" fill="#22C55E" font-size="8.5">160°</text>
+  <text x="425" y="226" fill="#5A8A70" font-size="8">0°</text>
+  <text x="617" y="226" fill="#5A8A70" font-size="8">360°</text>
+
+  <text x="425" y="243" fill="#7A5A1A" font-size="8.5">Imagen → Máscara</text>
+  <g transform="translate(425,248)">
+    <rect x="0"  y="0"  width="11" height="11" fill="#6B4226" rx="1"/>
+    <rect x="13" y="0"  width="11" height="11" fill="#2D7A3A" rx="1"/>
+    <rect x="26" y="0"  width="11" height="11" fill="#3D9A4A" rx="1"/>
+    <rect x="39" y="0"  width="11" height="11" fill="#CCAA77" rx="1"/>
+    <rect x="52" y="0"  width="11" height="11" fill="#2A7035" rx="1"/>
+    <rect x="0"  y="13" width="11" height="11" fill="#4A9A50" rx="1"/>
+    <rect x="13" y="13" width="11" height="11" fill="#9A7040" rx="1"/>
+    <rect x="26" y="13" width="11" height="11" fill="#3D9A4A" rx="1"/>
+    <rect x="39" y="13" width="11" height="11" fill="#4A9A50" rx="1"/>
+    <rect x="52" y="13" width="11" height="11" fill="#8A6040" rx="1"/>
+    <rect x="0"  y="26" width="11" height="11" fill="#3A8A45" rx="1"/>
+    <rect x="13" y="26" width="11" height="11" fill="#4A9A50" rx="1"/>
+    <rect x="26" y="26" width="11" height="11" fill="#7A5530" rx="1"/>
+    <rect x="39" y="26" width="11" height="11" fill="#3D9A4A" rx="1"/>
+    <rect x="52" y="26" width="11" height="11" fill="#2A7035" rx="1"/>
+  </g>
+  <text x="498" y="275" fill="#7A5A1A" font-size="14">→</text>
+  <g transform="translate(518,248)">
+    <rect x="0"  y="0"  width="11" height="11" fill="#111" rx="1"/>
+    <rect x="13" y="0"  width="11" height="11" fill="#2D7A3A" rx="1"/>
+    <rect x="26" y="0"  width="11" height="11" fill="#3D9A4A" rx="1"/>
+    <rect x="39" y="0"  width="11" height="11" fill="#111" rx="1"/>
+    <rect x="52" y="0"  width="11" height="11" fill="#2A7035" rx="1"/>
+    <rect x="0"  y="13" width="11" height="11" fill="#4A9A50" rx="1"/>
+    <rect x="13" y="13" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="26" y="13" width="11" height="11" fill="#3D9A4A" rx="1"/>
+    <rect x="39" y="13" width="11" height="11" fill="#4A9A50" rx="1"/>
+    <rect x="52" y="13" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="0"  y="26" width="11" height="11" fill="#3A8A45" rx="1"/>
+    <rect x="13" y="26" width="11" height="11" fill="#4A9A50" rx="1"/>
+    <rect x="26" y="26" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="39" y="26" width="11" height="11" fill="#3D9A4A" rx="1"/>
+    <rect x="52" y="26" width="11" height="11" fill="#2A7035" rx="1"/>
+  </g>
+  <text x="425" y="305" fill="#7A5A1A" font-size="9">Hue 40–160° &amp; Sat &gt;0.4 &amp; Val 0.3–0.9</text>
+
+  <!-- CARD 3: UMBRAL TÉRMICO -->
+  <rect x="60"  y="323" width="330" height="195" rx="7" fill="#0C1020" stroke="#F97316" stroke-width="1.2"/>
+  <rect x="60"  y="323" width="330" height="28"  rx="7" fill="#1A100A"/>
+  <rect x="60"  y="337" width="330" height="14"  fill="#1A100A"/>
+  <text x="75"  y="341" fill="#F97316" font-size="9" letter-spacing="2" font-weight="600">MÉTODO 03</text>
+  <text x="355" y="341" text-anchor="end" fill="#7A3A10" font-size="9">Solo imagen térmica</text>
+
+  <text x="75"  y="366" fill="#E8F5E2" font-size="13.5" font-weight="600">Umbral térmico</text>
+  <text x="75"  y="381" fill="#FDBA74" font-size="11" font-style="italic">T_húmeda &lt; T_píxel &lt; T_seca</text>
+
+  <text x="75"  y="402" fill="#7A3A10" font-size="9">Rango de temperatura aceptado</text>
+  <rect x="75"  y="406" width="200" height="14" rx="3" fill="url(#thermalGrad2)"/>
+  <rect x="139" y="404" width="72"  height="18" fill="none" stroke="#FFF" stroke-width="1.5" rx="2"/>
+  <text x="175" y="400" fill="#FFF" font-size="7.5" text-anchor="middle">✓</text>
+  <text x="75"  y="430" fill="#5A6A8A" font-size="8">frío</text>
+  <text x="265" y="430" fill="#EF4444" font-size="8">caliente</text>
+  <text x="139" y="430" fill="#FDE68A" font-size="7.5">T_hum</text>
+  <text x="200" y="430" fill="#FDE68A" font-size="7.5">T_seca</text>
+
+  <text x="75"  y="448" fill="#7A3A10" font-size="8.5">Imagen térmica → Máscara</text>
+  <g transform="translate(75,452)">
+    <rect x="0"  y="0"  width="11" height="11" fill="#1D4ED8" rx="1"/>
+    <rect x="13" y="0"  width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="0"  width="11" height="11" fill="#F59E0B" rx="1"/>
+    <rect x="39" y="0"  width="11" height="11" fill="#1D4ED8" rx="1"/>
+    <rect x="52" y="0"  width="11" height="11" fill="#16A34A" rx="1"/>
+    <rect x="0"  y="13" width="11" height="11" fill="#15803D" rx="1"/>
+    <rect x="13" y="13" width="11" height="11" fill="#EF4444" rx="1"/>
+    <rect x="26" y="13" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="39" y="13" width="11" height="11" fill="#F59E0B" rx="1"/>
+    <rect x="52" y="13" width="11" height="11" fill="#7C3AED" rx="1"/>
+    <rect x="0"  y="26" width="11" height="11" fill="#F59E0B" rx="1"/>
+    <rect x="13" y="26" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="26" width="11" height="11" fill="#EF4444" rx="1"/>
+    <rect x="39" y="26" width="11" height="11" fill="#15803D" rx="1"/>
+    <rect x="52" y="26" width="11" height="11" fill="#F59E0B" rx="1"/>
+  </g>
+  <text x="148" y="479" fill="#7A3A10" font-size="14">→</text>
+  <g transform="translate(168,452)">
+    <rect x="0"  y="0"  width="11" height="11" fill="#111" rx="1"/>
+    <rect x="13" y="0"  width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="0"  width="11" height="11" fill="#F59E0B" rx="1"/>
+    <rect x="39" y="0"  width="11" height="11" fill="#111" rx="1"/>
+    <rect x="52" y="0"  width="11" height="11" fill="#16A34A" rx="1"/>
+    <rect x="0"  y="13" width="11" height="11" fill="#15803D" rx="1"/>
+    <rect x="13" y="13" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="26" y="13" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="39" y="13" width="11" height="11" fill="#F59E0B" rx="1"/>
+    <rect x="52" y="13" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="0"  y="26" width="11" height="11" fill="#F59E0B" rx="1"/>
+    <rect x="13" y="26" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="26" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="39" y="26" width="11" height="11" fill="#15803D" rx="1"/>
+    <rect x="52" y="26" width="11" height="11" fill="#F59E0B" rx="1"/>
+  </g>
+  <text x="75"  y="510" fill="#7A3A10" font-size="9">Excluye píxeles demasiado fríos (suelo húmedo) o calientes (suelo seco)</text>
+
+  <!-- CARD 4: MÉTODO MIXTO -->
+  <rect x="410" y="323" width="330" height="195" rx="7" fill="#0C2018" stroke="#A3C4A0" stroke-width="2"/>
+  <rect x="410" y="323" width="330" height="28"  rx="7" fill="#0F2E1E"/>
+  <rect x="410" y="337" width="330" height="14"  fill="#0F2E1E"/>
+  <text x="425" y="341" fill="#22C55E" font-size="9" letter-spacing="2" font-weight="600">MÉTODO 04</text>
+  <text x="735" y="341" text-anchor="end" fill="#3D7A5A" font-size="9" font-weight="600">★ RECOMENDADO</text>
+
+  <text x="425" y="366" fill="#E8F5E2" font-size="13.5" font-weight="600">Método mixto</text>
+  <text x="425" y="381" fill="#86EFAC" font-size="11" font-style="italic">Índice espectral + Color HSV (AND)</text>
+
+  <text x="425" y="402" fill="#3D7A5A" font-size="9">Intersección de máscaras individuales</text>
+  <circle cx="490" cy="430" r="24" fill="#22C55E" fill-opacity="0.22" stroke="#22C55E" stroke-width="1.2"/>
+  <text x="473" y="416" fill="#86EFAC" font-size="8">NDVI</text>
+  <circle cx="518" cy="430" r="24" fill="#D97706" fill-opacity="0.22" stroke="#D97706" stroke-width="1.2"/>
+  <text x="515" y="416" fill="#FDE68A" font-size="8">HSV</text>
+  <circle cx="504" cy="450" r="24" fill="#F97316" fill-opacity="0.18" stroke="#F97316" stroke-width="1.2"/>
+  <text x="491" y="478" fill="#FDBA74" font-size="8">T umbral</text>
+  <text x="504" y="434" text-anchor="middle" fill="#FFF" font-size="9" font-weight="700">AND</text>
+
+  <text x="566" y="402" fill="#3D7A5A" font-size="8.5">Resultado final:</text>
+  <g transform="translate(566,408)">
+    <rect x="0"  y="0"  width="11" height="11" fill="#111" rx="1"/>
+    <rect x="13" y="0"  width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="0"  width="11" height="11" fill="#111" rx="1"/>
+    <rect x="39" y="0"  width="11" height="11" fill="#111" rx="1"/>
+    <rect x="52" y="0"  width="11" height="11" fill="#16A34A" rx="1"/>
+    <rect x="0"  y="13" width="11" height="11" fill="#15803D" rx="1"/>
+    <rect x="13" y="13" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="26" y="13" width="11" height="11" fill="#166534" rx="1"/>
+    <rect x="39" y="13" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="52" y="13" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="0"  y="26" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="13" y="26" width="11" height="11" fill="#22C55E" rx="1"/>
+    <rect x="26" y="26" width="11" height="11" fill="#111" rx="1"/>
+    <rect x="39" y="26" width="11" height="11" fill="#166534" rx="1"/>
+    <rect x="52" y="26" width="11" height="11" fill="#111" rx="1"/>
+  </g>
+  <text x="566" y="458" fill="#3D7A5A" font-size="8">Solo píxeles que</text>
+  <text x="566" y="469" fill="#3D7A5A" font-size="8">cumplen los 3 criterios</text>
+
+  <text x="425" y="497" fill="#3D7A5A" font-size="9">Combina múltiples criterios → máxima precisión en CWSI</text>
+  <rect x="425" y="501" width="300" height="2" rx="1" fill="#22C55E" fill-opacity="0.35"/>
+  <text x="425" y="512" fill="#86EFAC" font-size="8.5" font-weight="600">Menor error de temperatura foliar → CWSI más fiable</text>
+
+  <!-- BOTTOM -->
+  <line x1="60" y1="528" x2="740" y2="528" stroke="#1E3B30" stroke-width="1"/>
+  <rect x="60"  y="540" width="9" height="9" fill="#22C55E" rx="1"/>
+  <text x="74"  y="548" fill="#5A8A70" font-size="9">Índice espectral</text>
+  <rect x="170" y="540" width="9" height="9" fill="#D97706" rx="1"/>
+  <text x="184" y="548" fill="#5A8A70" font-size="9">Color HSV</text>
+  <rect x="260" y="540" width="9" height="9" fill="#F97316" rx="1"/>
+  <text x="274" y="548" fill="#5A8A70" font-size="9">Umbral térmico</text>
+  <rect x="370" y="540" width="9" height="9" fill="#0C2018" stroke="#E8F5E2" stroke-width="1" rx="1"/>
+  <text x="384" y="548" fill="#86EFAC" font-size="9" font-weight="600">Mixto ★</text>
+  <text x="740" y="548" text-anchor="end" fill="#2D5040" font-size="9" letter-spacing="1">ZAHORIFIELDS · ITACYL · zahorifields.com</text>
+
+  <line x1="395" y1="115" x2="395" y2="518" stroke="#1E3B30" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="60"  y1="315" x2="740" y2="315" stroke="#1E3B30" stroke-width="1" stroke-dasharray="4,4"/>
+</svg>

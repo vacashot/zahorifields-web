@@ -8,7 +8,7 @@ const links = [
   { to: '/docker', label: 'Docker' },
   { to: '/comunidad', label: 'Comunidad' },
   { to: '/galeria', label: 'Galería' },
-  { to: '/blog/cwsi', label: 'Blog' },
+  { to: '/blog/mascaras-vegetacion', label: 'Blog' },
   { to: '/swag', label: 'Swag' },
   { to: '/code', label: 'Code' },
 ]
