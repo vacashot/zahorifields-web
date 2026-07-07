@@ -50,6 +50,10 @@ export default function Download() {
               Descargar .zip
             </a>
             <p className="text-[11px] text-muted mt-3 text-center">Windows · ~144 MB · v1.1</p>
+            <div className="mt-3 bg-surface-2 border border-border rounded-sm px-3 py-2">
+              <p className="text-[10px] font-mono text-muted mb-0.5">SHA-256</p>
+              <p className="text-[10px] font-mono text-text break-all select-all">28AA513A060F866C707DFA4B3E1A351397E394AEFA9C12906951B669631AE857</p>
+            </div>
           </div>
 
           {/* Docker */}
