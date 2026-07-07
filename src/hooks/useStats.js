@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 
 const GITHUB_OWNER = 'vacashot'
 const GITHUB_REPO  = 'zahorifields-web'
-const COUNTER_NS   = 'zahorifields'
-const COUNTER_KEY  = 'web-visits'
 
 export function useDownloadCount() {
   const [count, setCount] = useState(null)
@@ -32,25 +30,17 @@ export function useVisitCount() {
 
   useEffect(() => {
     const alreadyCounted = sessionStorage.getItem('zf_visit_counted')
+    const action = alreadyCounted ? 'get' : 'hit'
 
-    if (alreadyCounted) {
-      // Only fetch, don't increment again this session
-      fetch(`https://api.counterapi.dev/v1/${COUNTER_NS}/${COUNTER_KEY}/get`)
-        .then(r => r.json())
-        .then(d => { if (d?.count != null) setCount(d.count) })
-        .catch(() => {})
-    } else {
-      // Increment once per session
-      fetch(`https://api.counterapi.dev/v1/${COUNTER_NS}/${COUNTER_KEY}/up`)
-        .then(r => r.json())
-        .then(d => {
-          if (d?.count != null) {
-            setCount(d.count)
-            sessionStorage.setItem('zf_visit_counted', '1')
-          }
-        })
-        .catch(() => {})
-    }
+    fetch(`/api/visits?action=${action}`)
+      .then(r => r.json())
+      .then(d => {
+        if (d?.value != null) {
+          setCount(d.value)
+          if (action === 'hit') sessionStorage.setItem('zf_visit_counted', '1')
+        }
+      })
+      .catch(() => {})
   }, [])
 
   return count
