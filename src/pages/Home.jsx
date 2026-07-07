@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Layers, Thermometer, Droplets, Flower2, Map, Calculator, ScanLine, Sliders } from 'lucide-react'
+import { ArrowRight, Layers, Thermometer, Droplets, Flower2, Map, Calculator, ScanLine, Sliders, Download as DownloadIcon, Globe } from 'lucide-react'
+import { useDownloadCount, useVisitCount, formatCount } from '../hooks/useStats'
 
 const features = [
   { icon: Layers, title: 'Índices de Vegetación', desc: 'Más de 50 índices multiespectrales: NDVI, NDRE, SAVI y variantes avanzadas.' },
@@ -29,6 +30,36 @@ const steps = [
     desc: 'Calcula índices, compara mapas y extrae estadísticas útiles para interpretar la variabilidad del cultivo.',
   },
 ]
+
+function StatsBar() {
+  const downloads = useDownloadCount()
+  const visits    = useVisitCount()
+
+  const stats = [
+    { icon: DownloadIcon, label: 'descargas', value: formatCount(downloads) },
+    { icon: Globe,        label: 'visitas',   value: formatCount(visits) },
+    { icon: Layers,       label: 'índices espectrales', value: '50+' },
+    { icon: Map,          label: 'sensores compatibles', value: '8+' },
+  ]
+
+  return (
+    <div className="border-b border-border bg-surface-2">
+      <div className="max-w-5xl mx-auto px-6 py-4 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
+        {stats.map(({ icon: Icon, label, value }) => (
+          <div key={label} className="flex items-center gap-3 px-4 first:pl-0 last:pr-0">
+            <Icon className="w-4 h-4 text-accent shrink-0" strokeWidth={1.5} />
+            <div>
+              <p className="text-base font-semibold text-text font-mono leading-none">
+                {value}
+              </p>
+              <p className="text-[10px] text-muted mt-0.5">{label}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
   return (
@@ -65,6 +96,8 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <StatsBar />
 
       {/* Flujo de 3 pasos */}
       <section className="section">

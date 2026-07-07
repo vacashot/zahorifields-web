@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Download as DownloadIcon, Terminal, CheckCircle, AlertCircle, ArrowRight, ShieldCheck, ShieldX, AlertTriangle } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useDownloadCount, formatCount } from '../hooks/useStats'
 
 const OFFICIAL_HASH = '28AA513A060F866C707DFA4B3E1A351397E394AEFA9C12906951B669631AE857'
 
@@ -49,6 +50,7 @@ const faqs = [
 
 export default function Download() {
   const [openFaq, setOpenFaq] = useState(null)
+  const downloads = useDownloadCount()
 
   return (
     <div className="pt-16">
@@ -57,6 +59,11 @@ export default function Download() {
           <span className="section-label">Software</span>
           <h1 className="text-4xl font-semibold tracking-tight text-text mb-3">Download</h1>
           <p className="text-muted text-sm max-w-md">Descarga ZahoriFields para tu sistema operativo. Gratuito, sin registro requerido.</p>
+          {downloads != null && (
+            <p className="text-[11px] font-mono text-accent mt-4">
+              {formatCount(downloads)} descargas totales
+            </p>
+          )}
         </div>
       </div>
 
