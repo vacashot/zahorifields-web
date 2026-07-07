@@ -76,6 +76,22 @@ export default function Download() {
           </div>
         </div>
 
+        {/* Verificación de integridad */}
+        <div className="border border-border bg-white rounded-sm p-6 mb-14">
+          <p className="text-xs font-mono tracking-widest text-muted uppercase mb-4">Verificación de integridad</p>
+          <p className="text-sm text-muted leading-relaxed mb-4">
+            El hash SHA-256 te permite comprobar que el archivo descargado es exactamente el original y no ha sido modificado ni corrompido. Es una práctica estándar en software profesional.
+          </p>
+          <p className="text-sm font-medium text-text mb-2">Cómo verificarlo en Windows:</p>
+          <p className="text-xs text-muted mb-3">Abre PowerShell y ejecuta:</p>
+          <div className="bg-surface-2 border border-border rounded-sm px-4 py-3 mb-3">
+            <p className="font-mono text-xs text-text select-all">{'Get-FileHash "C:\\ruta\\al\\archivo\\ZahoriFields_v1.0.0_Windows.zip" -Algorithm SHA256'}</p>
+          </div>
+          <p className="text-xs text-muted leading-relaxed">
+            Si el resultado coincide con el hash que aparece en la tarjeta de descarga, el archivo es auténtico.
+          </p>
+        </div>
+
         {/* Nota */}
         <div className="border border-border bg-accent-light p-5 flex gap-4 mb-14 rounded-sm">
           <Terminal className="w-4 h-4 text-accent mt-0.5 shrink-0" />
