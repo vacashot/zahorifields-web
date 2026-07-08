@@ -10,6 +10,7 @@ import Swag from './pages/Swag'
 import Code from './pages/Code'
 import Docker from './pages/Docker'
 import Galeria from './pages/Galeria'
+import Blog from './pages/Blog'
 import BlogCWSI from './pages/BlogCWSI'
 import BlogMascaras from './pages/BlogMascaras'
 
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/code" element={<Code />} />
             <Route path="/docker" element={<Docker />} />
             <Route path="/galeria" element={<Galeria />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/blog/cwsi" element={<BlogCWSI />} />
             <Route path="/blog/mascaras-vegetacion" element={<BlogMascaras />} />
           </Routes>

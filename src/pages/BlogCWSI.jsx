@@ -23,7 +23,9 @@ export default function BlogCWSI() {
           <div className="flex items-center gap-2 mb-5">
             <Link to="/" className="text-xs text-muted hover:text-text transition-colors">Inicio</Link>
             <span className="text-muted text-xs">/</span>
-            <span className="text-xs text-accent">Blog</span>
+            <Link to="/blog" className="text-xs text-muted hover:text-text transition-colors">Blog</Link>
+            <span className="text-muted text-xs">/</span>
+            <span className="text-xs text-accent">CWSI</span>
           </div>
           <span className="section-label">Tutorial · Índices térmicos</span>
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-text mt-2 mb-4" style={{ textWrap: 'balance' }}>

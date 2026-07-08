@@ -63,7 +63,7 @@ export default function BlogMascaras() {
           <div className="flex items-center gap-2 mb-5">
             <Link to="/" className="text-xs text-muted hover:text-text transition-colors">Inicio</Link>
             <span className="text-muted text-xs">/</span>
-            <Link to="/blog/cwsi" className="text-xs text-muted hover:text-text transition-colors">Blog</Link>
+            <Link to="/blog" className="text-xs text-muted hover:text-text transition-colors">Blog</Link>
             <span className="text-muted text-xs">/</span>
             <span className="text-xs text-accent">Máscaras de vegetación</span>
           </div>
