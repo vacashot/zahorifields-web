@@ -18,6 +18,14 @@ const products = [
     url: 'https://zahorifields.printify.me/product/29613699',
   },
   {
+    name: 'Kiss-Cut Logo Sticker',
+    desc: 'Pegatina troquelada con el logotipo horizontal de ZahoriFields. Vinilo blanco de alta calidad, resistente al agua y a la intemperie. Perfecta para portátiles, equipos de campo y drones.',
+    price: '2,75 €',
+    tag: 'Nuevo',
+    img: '/images/swag/kiss-cut-logo-sticker.webp',
+    url: 'https://zahorifields.printify.me/product/29865722',
+  },
+  {
     name: 'Custom Pin Buttons',
     desc: 'Chapa con el logo ZahoriFields. Perfecta para congresos, jornadas técnicas y eventos de agricultura de precisión.',
     price: '4,60 €',
