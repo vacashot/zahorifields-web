@@ -33,12 +33,12 @@ function HeroCarousel() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(rgba(34,197,94,0.13) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.13) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(34,197,94,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.35) 1px, transparent 1px)`,
           backgroundSize: '52px 52px',
         }}
       />
       {/* gradiente oscuro — texto legible a la izquierda */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-black/10" />
       {/* dots */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
         {heroImages.map((_, i) => (
