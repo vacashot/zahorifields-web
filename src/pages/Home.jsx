@@ -1,6 +1,58 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { ArrowRight, Layers, Thermometer, Droplets, Flower2, Map, Calculator, ScanLine, Sliders, Download as DownloadIcon, Globe } from 'lucide-react'
 import { useDownloadCount, useVisitCount, formatCount } from '../hooks/useStats'
+
+const heroImages = [
+  '/hero/campo1.jpg',
+  '/hero/campo2.jpg',
+  '/hero/campo3.jpg',
+]
+
+function HeroCarousel() {
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    const t = setInterval(() => setCurrent(i => (i + 1) % heroImages.length), 5000)
+    return () => clearInterval(t)
+  }, [])
+
+  return (
+    <>
+      {heroImages.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          style={{ opacity: i === current ? 1 : 0 }}
+        />
+      ))}
+      {/* malla de análisis */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(34,197,94,0.13) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.13) 1px, transparent 1px)`,
+          backgroundSize: '52px 52px',
+        }}
+      />
+      {/* gradiente oscuro — texto legible a la izquierda */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
+      {/* dots */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {heroImages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            aria-label={`Imagen ${i + 1}`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-accent w-5' : 'bg-white/40 hover:bg-white/70'}`}
+          />
+        ))}
+      </div>
+    </>
+  )
+}
 
 const features = [
   { icon: Layers, title: 'Índices de Vegetación', desc: 'Más de 50 índices multiespectrales: NDVI, NDRE, SAVI y variantes avanzadas.' },
@@ -65,18 +117,19 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-36 pb-24 px-6 bg-white border-b border-border">
-        <div className="max-w-screen-xl mx-auto">
-          <span className="inline-block text-[11px] font-mono tracking-widest text-muted uppercase bg-surface-2 border border-border px-3 py-1 mb-8">
+      <section className="relative pt-40 pb-28 px-6 border-b border-border overflow-hidden" style={{ minHeight: '580px' }}>
+        <HeroCarousel />
+        <div className="relative z-10 max-w-screen-xl mx-auto">
+          <span className="inline-block text-[11px] font-mono tracking-widest text-white/60 uppercase bg-white/10 border border-white/20 backdrop-blur-sm px-3 py-1 mb-8">
             ZAHORI FIELDS · HERRAMIENTA GEOINFORMÁTICA LOCAL
           </span>
 
-          <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-6 text-text">
+          <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-6 text-white">
             Convierte imágenes de dron en<br />
             <span className="text-accent">información agronómica útil</span>
           </h1>
 
-          <p className="text-base text-muted max-w-2xl leading-relaxed mb-10">
+          <p className="text-base text-white/75 max-w-2xl leading-relaxed mb-10">
             Zahori Fields es una aplicación local, ejecutada desde el navegador, para analizar imágenes RGB,
             multiespectrales, térmicas y modelos derivados de vuelos UAS. Permite calcular índices, delimitar
             zonas de interés, comparar resultados y extraer métricas para ensayos y seguimiento de cultivos.
@@ -86,12 +139,12 @@ export default function Home() {
             <Link to="/download" className="btn-primary">
               Descargar gratis <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/docs" className="btn-ghost">
+            <Link to="/docs" className="bg-white/15 backdrop-blur-sm border border-white/30 text-white hover:bg-white/25 transition-colors text-sm font-medium px-5 py-2.5 rounded-sm inline-flex items-center gap-2">
               Documentación técnica
             </Link>
           </div>
 
-          <p className="text-xs text-muted mt-6 font-mono">
+          <p className="text-xs text-white/50 mt-6 font-mono">
             Windows · Ejecución local · Agricultura de precisión
           </p>
         </div>
