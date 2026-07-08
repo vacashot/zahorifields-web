@@ -4,7 +4,7 @@ const products = [
   {
     name: 'Square Stickers',
     desc: 'Pegatina cuadrada con el logo ZahoriFields. Vinilo de alta calidad, resistente al agua y a la intemperie. Perfecta para portátiles, equipos de campo y vehículos.',
-    price: '$2.50',
+    price: '2,30 €',
     tag: 'Más popular',
     img: '/images/swag/square-stickers.jpg',
     url: 'https://zahorifields.printify.me/product/29613378',
@@ -12,7 +12,7 @@ const products = [
   {
     name: 'Vinyl Kiss-Cut Stickers',
     desc: 'Pegatina troquelada en vinilo con acabado profesional. Contorno perfecto alrededor del logo. Ideal para personalizar equipamiento de laboratorio o drones.',
-    price: '$9.42',
+    price: '8,60 €',
     tag: null,
     img: '/images/swag/vinyl-kiss-cut-stickers.jpg',
     url: 'https://zahorifields.printify.me/product/29613699',
@@ -20,7 +20,7 @@ const products = [
   {
     name: 'Custom Pin Buttons',
     desc: 'Chapa con el logo ZahoriFields. Perfecta para congresos, jornadas técnicas y eventos de agricultura de precisión.',
-    price: '$4.99',
+    price: '4,60 €',
     tag: null,
     img: '/images/swag/custom-pin-buttons.jpg',
     url: 'https://zahorifields.printify.me/product/29613439',
