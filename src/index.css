@@ -35,3 +35,17 @@ html { scroll-behavior: smooth; }
     @apply border border-border bg-white p-6 hover:shadow-sm transition-all duration-150 rounded-sm;
   }
 }
+
+@keyframes partners-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.partners-track {
+  animation: partners-scroll 28s linear infinite;
+  width: max-content;
+}
+
+.partners-track:hover {
+  animation-play-state: paused;
+}

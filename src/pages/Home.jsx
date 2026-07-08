@@ -196,6 +196,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Socios */}
+      <section className="border-t border-border" style={{ background: '#f4f3ef' }}>
+        <div className="max-w-screen-xl mx-auto px-6 py-12">
+          <p className="text-[10px] font-mono tracking-widest text-muted uppercase mb-8 text-center">
+            Proyecto avalado por
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+            {[
+              { src: '/images/socios/fertinagro.svg', alt: 'Fertinagro Biotech' },
+              { src: '/images/socios/syngenta.svg',   alt: 'Syngenta' },
+              { src: '/images/socios/aerobur.svg',    alt: 'Aerobur' },
+              { src: '/images/socios/unileon.svg',    alt: 'Universidad de León' },
+              { src: '/images/socios/ubu.svg',        alt: 'Universidad de Burgos' },
+              { src: '/images/socios/aepla.png',      alt: 'AEPLA' },
+            ].map(({ src, alt }) => (
+              <div key={alt}
+                title={alt}
+                className="bg-white border border-border flex items-center justify-center h-16 px-4 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:shadow-sm transition-all duration-300"
+              >
+                <img src={src} alt={alt} className="max-h-10 max-w-full object-contain" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="bg-accent">
         <div className="max-w-screen-xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
