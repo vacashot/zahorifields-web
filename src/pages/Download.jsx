@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { Download as DownloadIcon, Terminal, CheckCircle, AlertCircle, ArrowRight, ShieldCheck, ShieldX, AlertTriangle } from 'lucide-react'
+import { Download as DownloadIcon, Terminal, CheckCircle, AlertCircle, ArrowRight, ShieldCheck, ShieldX, AlertTriangle, ExternalLink } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useDownloadCount, formatCount } from '../hooks/useStats'
 
 const OFFICIAL_HASH = '28AA513A060F866C707DFA4B3E1A351397E394AEFA9C12906951B669631AE857'
+const VIRUSTOTAL_URL = `https://www.virustotal.com/gui/file/${OFFICIAL_HASH.toLowerCase()}`
 
 function HashVerifier() {
   const [input, setInput] = useState('')
@@ -87,6 +88,24 @@ export default function Download() {
               Descargar .zip
             </a>
             <p className="text-[11px] text-muted mt-3 text-center">Windows · ~144 MB · v1.1</p>
+
+            {/* VirusTotal badge */}
+            <a
+              href={VIRUSTOTAL_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="mt-3 flex items-center justify-between gap-2 bg-emerald-50 border border-emerald-200 rounded-sm px-3 py-2 hover:bg-emerald-100 transition-colors group"
+            >
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <div>
+                  <p className="text-[10px] font-semibold text-emerald-800">Analizado en VirusTotal</p>
+                  <p className="text-[10px] text-emerald-700">0 / 70 motores antivirus detectan amenazas</p>
+                </div>
+              </div>
+              <ExternalLink className="w-3 h-3 text-emerald-500 shrink-0 group-hover:text-emerald-700 transition-colors" />
+            </a>
+
             <div className="mt-3 flex items-start gap-2 bg-yellow-50 border border-yellow-200 rounded-sm px-3 py-2">
               <AlertTriangle className="w-3.5 h-3.5 text-yellow-600 mt-0.5 shrink-0" />
               <p className="text-[10px] text-yellow-800 leading-relaxed">
