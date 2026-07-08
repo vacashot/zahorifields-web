@@ -74,7 +74,7 @@ export default function Docker() {
   return (
     <div className="pt-16">
       <div className="bg-white border-b border-border">
-        <div className="max-w-5xl mx-auto px-6 py-16 flex items-start gap-6">
+        <div className="max-w-screen-xl mx-auto px-6 py-16 flex items-start gap-6">
           <DockerLogo />
           <div>
             <span className="section-label">Instalación</span>

@@ -44,7 +44,7 @@ function StatsBar() {
 
   return (
     <div className="border-b border-border bg-surface-2">
-      <div className="max-w-5xl mx-auto px-6 py-4 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
+      <div className="max-w-screen-xl mx-auto px-6 py-4 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
         {stats.map(({ icon: Icon, label, value }) => (
           <div key={label} className="flex items-center gap-3 px-4 first:pl-0 last:pr-0">
             <Icon className="w-4 h-4 text-accent shrink-0" strokeWidth={1.5} />
@@ -66,7 +66,7 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="pt-36 pb-24 px-6 bg-white border-b border-border">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-screen-xl mx-auto">
           <span className="inline-block text-[11px] font-mono tracking-widest text-muted uppercase bg-surface-2 border border-border px-3 py-1 mb-8">
             ZAHORI FIELDS · HERRAMIENTA GEOINFORMÁTICA LOCAL
           </span>
@@ -145,7 +145,7 @@ export default function Home() {
 
       {/* CTA final */}
       <section className="bg-accent">
-        <div className="max-w-5xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="max-w-screen-xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 className="text-2xl font-semibold text-white mb-2">Descarga ZahoriFields</h2>
             <p className="text-green-100 text-sm">

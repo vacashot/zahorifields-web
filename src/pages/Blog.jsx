@@ -23,7 +23,7 @@ export default function Blog() {
   return (
     <div className="pt-16">
       <div className="bg-white border-b border-border">
-        <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="max-w-screen-xl mx-auto px-6 py-16">
           <span className="section-label">Recursos</span>
           <h1 className="text-4xl font-semibold tracking-tight text-text mb-3">Blog</h1>
           <p className="text-muted text-sm max-w-md">
@@ -32,7 +32,7 @@ export default function Blog() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-14">
+      <div className="max-w-screen-xl mx-auto px-6 py-14">
         <div className="grid md:grid-cols-2 gap-6">
           {posts.map(({ to, tag, title, excerpt, meta, img }) => (
             <Link

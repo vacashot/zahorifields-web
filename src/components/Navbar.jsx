@@ -25,22 +25,23 @@ export default function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-200 ${scrolled ? 'shadow-sm' : ''} border-b border-border`}>
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center">
+      <div className="max-w-screen-xl mx-auto px-8 h-16 flex items-center justify-between gap-6">
+
+        <Link to="/" className="flex items-center shrink-0">
           <img
             src="/images/logo-horizontal.png"
             alt="ZahoriFields"
-            className="h-8 w-auto"
+            className="h-9 w-auto"
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-0.5 flex-1 justify-center">
           {links.map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
               className={({ isActive }) =>
-                `px-4 py-2 text-sm transition-colors duration-150 rounded-sm ${
+                `px-3 py-2 text-sm transition-colors duration-150 rounded-sm whitespace-nowrap ${
                   isActive
                     ? 'text-accent font-medium bg-accent-light'
                     : 'text-muted hover:text-text hover:bg-surface-2'
@@ -50,13 +51,14 @@ export default function Navbar() {
               {label}
             </NavLink>
           ))}
-          <Link to="/download" className="ml-3 btn-primary text-xs px-4 py-2">
-            Descargar
-          </Link>
         </nav>
 
+        <Link to="/download" className="hidden md:inline-flex btn-primary text-sm px-5 py-2 shrink-0">
+          Descargar
+        </Link>
+
         <button
-          className="md:hidden text-muted hover:text-text transition-colors"
+          className="md:hidden text-muted hover:text-text transition-colors shrink-0"
           onClick={() => setOpen(!open)}
           aria-label="Menú"
         >
@@ -84,6 +86,9 @@ export default function Navbar() {
               {label}
             </NavLink>
           ))}
+          <Link to="/download" className="btn-primary mt-4 w-full justify-center" onClick={() => setOpen(false)}>
+            Descargar
+          </Link>
         </div>
       )}
     </header>

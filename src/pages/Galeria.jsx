@@ -54,7 +54,7 @@ export default function Galeria() {
   return (
     <div className="pt-16">
       <div className="bg-white border-b border-border">
-        <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="max-w-screen-xl mx-auto px-6 py-16">
           <span className="section-label">Capturas de pantalla</span>
           <h1 className="text-4xl font-semibold tracking-tight text-text mb-3">Galería</h1>
           <p className="text-muted text-sm max-w-lg">
@@ -63,7 +63,7 @@ export default function Galeria() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-14">
+      <div className="max-w-screen-xl mx-auto px-6 py-14">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {items.map((item, i) => (
             <MediaThumb key={i} item={item} onClick={() => setActive(i)} />

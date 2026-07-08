@@ -47,7 +47,7 @@ export default function Datasets() {
   return (
     <div className="pt-16">
       <div className="bg-white border-b border-border">
-        <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="max-w-screen-xl mx-auto px-6 py-16">
           <span className="section-label">Imágenes de muestra</span>
           <h1 className="text-4xl font-semibold tracking-tight text-text mb-3">Datasets</h1>
           <p className="text-muted text-sm max-w-lg">
@@ -57,7 +57,7 @@ export default function Datasets() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-14">
+      <div className="max-w-screen-xl mx-auto px-6 py-14">
 
         {/* Tabla */}
         <div className="overflow-x-auto border border-border bg-white rounded-sm">

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-border mt-auto">
-      <div className="max-w-5xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="max-w-screen-xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-10">
         <div className="col-span-2 md:col-span-1">
           <img
             src="/images/logo-vertical.png"
@@ -61,7 +61,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-border">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
+        <div className="max-w-screen-xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-xs text-muted">© 2026 ITACYL — Instituto Tecnológico Agrario de Castilla y León</p>
           <p className="text-xs text-muted">ZahoriFields — Licencia abierta</p>
         </div>

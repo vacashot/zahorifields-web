@@ -55,7 +55,7 @@ export default function Download() {
   return (
     <div className="pt-16">
       <div className="bg-white border-b border-border">
-        <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="max-w-screen-xl mx-auto px-6 py-16">
           <span className="section-label">Software</span>
           <h1 className="text-4xl font-semibold tracking-tight text-text mb-3">Download</h1>
           <p className="text-muted text-sm max-w-md">Descarga ZahoriFields para tu sistema operativo. Gratuito, sin registro requerido.</p>
@@ -67,7 +67,7 @@ export default function Download() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-14">
+      <div className="max-w-screen-xl mx-auto px-6 py-14">
         {/* OS Cards */}
         <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mb-14">
           {/* Windows */}
