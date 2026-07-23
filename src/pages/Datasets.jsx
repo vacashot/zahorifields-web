@@ -2,15 +2,6 @@ import { ExternalLink } from 'lucide-react'
 
 const datasets = [
   {
-    name: 'finca_colza_fertinagro_03_12_2025_altum_20m.tif',
-    sensor: 'MicaSense Altum',
-    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: 6 },
-    range: '0 – 65535',
-    size: '1.5 GB',
-    notes: 'Ensayo de colza',
-    url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/finca_colza_fertinagro_03_12_2025_altum_20m.tif',
-  },
-  {
     name: 'EX1_RGB.tif',
     sensor: 'RGB',
     bands: { red: 1, green: 2, blue: 3, redEdge: null, nir: null, thermal: null },
@@ -45,6 +36,24 @@ const datasets = [
     size: '128.8 MB',
     notesJsx: <span>Ensayos <a href="https://www.opendronemap.org/fieldimager" target="_blank" rel="noreferrer" className="text-accent hover:underline">FIELDimageR</a></span>,
     url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX1_5band_RGBReNir.tif',
+  },
+  {
+    name: 'EX_DSM0.tif',
+    sensor: 'RGB · SfM',
+    bands: { red: null, green: null, blue: null, redEdge: null, nir: null, thermal: null },
+    range: 'm (metros)',
+    size: '2.7 MB',
+    notesJsx: <span>MDT (suelo) · <a href="https://www.opendronemap.org/fieldimager" target="_blank" rel="noreferrer" className="text-accent hover:underline">FIELDimageR</a></span>,
+    url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX_DSM0.tif',
+  },
+  {
+    name: 'finca_colza_fertinagro_03_12_2025_altum_20m.tif',
+    sensor: 'MicaSense Altum',
+    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: 6 },
+    range: '0 – 65535',
+    size: '1.5 GB',
+    notes: 'Ensayo de colza',
+    url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/finca_colza_fertinagro_03_12_2025_altum_20m.tif',
   },
   {
     name: 'LST_noon.tif',
