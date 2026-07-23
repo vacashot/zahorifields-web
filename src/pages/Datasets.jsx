@@ -55,6 +55,15 @@ const datasets = [
     notesJsx: <span>Mandarinos · Palermo · <a href="https://zenodo.org/records/6516722" target="_blank" rel="noreferrer" className="text-accent hover:underline">Zenodo</a></span>,
     url: 'https://zenodo.org/records/6516722/files/LST_noon.tif?download=1',
   },
+  {
+    name: 'NDVI_13072026_VALLADOLID_PATATA.tif',
+    sensor: 'MSI · Sentinel-2',
+    bands: { red: null, green: null, blue: null, redEdge: null, nir: null, thermal: null },
+    range: '-1 – 1',
+    size: '460.0 MB',
+    notes: 'NDVI',
+    url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/NDVI_13072026_VALLADOLID_PATATA.tif',
+  },
 ]
 
 const bandInfo = [
