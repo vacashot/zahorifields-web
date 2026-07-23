@@ -64,6 +64,15 @@ const datasets = [
     notes: 'NDVI',
     url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/NDVI_13072026_VALLADOLID_PATATA.tif',
   },
+  {
+    name: '201.tif',
+    sensor: 'Térmico',
+    bands: { red: null, green: null, blue: null, redEdge: null, nir: null, thermal: 1 },
+    range: 'K (Kelvin)',
+    size: '1.0 MB',
+    notesJsx: <span><a href="https://ecothermographylab.com/" target="_blank" rel="noreferrer" className="text-accent hover:underline">Palm Oil</a></span>,
+    url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/201.tif',
+  },
 ]
 
 const bandInfo = [
