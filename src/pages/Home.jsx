@@ -148,10 +148,6 @@ export default function Home() {
             Windows · Ejecución local · Agricultura de precisión
           </p>
         </div>
-        {/* Dron animado — lado derecho del hero */}
-        <div className="absolute right-16 top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center z-10 opacity-90">
-          <img src="/images/zahorifields_dron_animado.svg" alt="" aria-hidden="true" className="w-48 h-auto drop-shadow-2xl" />
-        </div>
       </section>
 
       <StatsBar />
