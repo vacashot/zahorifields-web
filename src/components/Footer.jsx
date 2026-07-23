@@ -61,6 +61,16 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-border">
+        <div className="max-w-screen-xl mx-auto px-6 py-6 flex justify-center">
+          <img
+            src="/images/FEMPA_PEPAC_Agricultura_NEG_JCYL.svg"
+            alt="FEMPA · PEPAC · Agricultura · Junta de Castilla y León"
+            className="h-14 w-auto"
+          />
+        </div>
+      </div>
+
+      <div className="border-t border-border">
         <div className="max-w-screen-xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-xs text-muted">© 2026 ITACYL — Instituto Tecnológico Agrario de Castilla y León</p>
           <p className="text-xs text-muted">ZahoriFields — Licencia abierta</p>
