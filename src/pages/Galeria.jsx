@@ -12,7 +12,8 @@ const items = [
   { src: '/galeria/modulo_estres_termico.jpg',     type: 'image', caption: 'Módulo estrés térmico' },
   { src: '/galeria/modulo_mascara_vegetacion.jpg',  type: 'image', caption: 'Módulo máscara de vegetación' },
   { src: '/galeria/swipe_mascara_pistacho.jpg', type: 'image', caption: 'Swipe máscara · Pistacho' },
-  { src: '/galeria/chm.jpg',                   type: 'image', caption: 'CHM · Modelo de altura de copa' },
+  { src: '/galeria/chm.jpg',            type: 'image', caption: 'CHM · Modelo de altura de copa' },
+  { src: '/galeria/centro_de_ayuda.jpg', type: 'image', caption: 'Centro de ayuda' },
 ]
 
 function MediaThumb({ item, onClick }) {
