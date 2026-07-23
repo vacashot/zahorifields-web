@@ -10,7 +10,8 @@ const items = [
   { src: '/galeria/plan_aplicacion.jpg',      type: 'image', caption: 'Plan de aplicación' },
   { src: '/galeria/vra_zonificacion.jpg',          type: 'image', caption: 'VRA · Zonificación' },
   { src: '/galeria/modulo_estres_termico.jpg',     type: 'image', caption: 'Módulo estrés térmico' },
-  { src: '/galeria/modulo_mascara_vegetacion.jpg', type: 'image', caption: 'Módulo máscara de vegetación' },
+  { src: '/galeria/modulo_mascara_vegetacion.jpg',  type: 'image', caption: 'Módulo máscara de vegetación' },
+  { src: '/galeria/swipe_mascara_pistacho.jpg',     type: 'image', caption: 'Swipe máscara · Pistacho' },
 ]
 
 function MediaThumb({ item, onClick }) {
