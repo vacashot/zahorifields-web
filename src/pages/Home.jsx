@@ -90,7 +90,7 @@ function StatsBar() {
   const stats = [
     { icon: DownloadIcon, label: 'descargas', value: formatCount(downloads) },
     { icon: Globe,        label: 'visitas',   value: formatCount(visits) },
-    { icon: Layers,       label: 'índices espectrales', value: '50+' },
+    { icon: Layers,       label: 'índices espectrales', value: '60+' },
     { icon: Map,          label: 'sensores compatibles', value: '8+' },
   ]
 
