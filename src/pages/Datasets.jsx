@@ -19,6 +19,15 @@ const datasets = [
     notes: 'Trial plots',
     url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX1_RGB.tif',
   },
+  {
+    name: 'EX2_RGB.tif',
+    sensor: 'RGB',
+    bands: { red: 1, green: 2, blue: 3, redEdge: null, nir: null, thermal: null },
+    range: '0 – 255',
+    size: '37.9 MB',
+    notesJsx: <span>Ensayos <a href="https://www.opendronemap.org/fieldimager" target="_blank" rel="noreferrer" className="text-accent hover:underline">FIELDimageR</a></span>,
+    url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX2_RGB.tif',
+  },
 ]
 
 const bandInfo = [
@@ -102,7 +111,7 @@ export default function Datasets() {
                     <span className="font-mono text-[11px] bg-surface-2 border border-border px-2 py-0.5 rounded-sm text-muted whitespace-nowrap">{d.range}</span>
                   </td>
                   <td className="px-4 py-3.5 text-xs text-muted font-mono text-right whitespace-nowrap">{d.size}</td>
-                  <td className="px-4 py-3.5 text-xs text-muted max-w-[160px]">{d.notes}</td>
+                  <td className="px-4 py-3.5 text-xs text-muted max-w-[160px]">{d.notesJsx ?? d.notes}</td>
                   <td className="px-4 py-3.5">
                     <a
                       href={d.url}
