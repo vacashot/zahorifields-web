@@ -46,6 +46,15 @@ const datasets = [
     notesJsx: <span>Ensayos <a href="https://www.opendronemap.org/fieldimager" target="_blank" rel="noreferrer" className="text-accent hover:underline">FIELDimageR</a></span>,
     url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX1_5band_RGBReNir.tif',
   },
+  {
+    name: 'LST_noon.tif',
+    sensor: 'FLIR Térmica',
+    bands: { red: null, green: null, blue: null, redEdge: null, nir: null, thermal: 1 },
+    range: '0 – 1',
+    size: '27.1 MB',
+    notesJsx: <span>Mandarinos · Palermo · <a href="https://zenodo.org/records/6516722" target="_blank" rel="noreferrer" className="text-accent hover:underline">Zenodo</a></span>,
+    url: 'https://zenodo.org/records/6516722',
+  },
 ]
 
 const bandInfo = [
