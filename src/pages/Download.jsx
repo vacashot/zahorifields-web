@@ -3,6 +3,28 @@ import { Download as DownloadIcon, Terminal, CheckCircle, AlertCircle, ArrowRigh
 import { Link } from 'react-router-dom'
 import { useDownloadCount, formatCount } from '../hooks/useStats'
 
+function WindowsIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+    </svg>
+  )
+}
+function AppleIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+    </svg>
+  )
+}
+function LinuxIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.09-2.362 2.208-2.362 4.107 0 1.867 1.211 2.447 1.21 4.597 0 .27-.023.537-.08.797-.148.734-.585 1.613-1.21 2.147-.627.526-1.34.807-1.948 1.073-.997.428-1.415.788-1.415 1.72 0 .917.596 1.506 1.327 1.892.733.388 1.638.54 2.432.54h.023c1.286 0 2.553-.37 3.489-.962.936.592 2.203.962 3.489.962h.023c.795 0 1.698-.152 2.432-.54.731-.386 1.327-.975 1.327-1.892 0-.932-.418-1.292-1.415-1.72-.608-.266-1.321-.547-1.948-1.073-.625-.534-1.062-1.413-1.21-2.147-.057-.26-.08-.527-.08-.797 0-2.15 1.211-2.73 1.21-4.597 0-1.899-1.477-3.017-2.362-4.107-.75-1.067-.974-1.928-1.05-3.02-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021z"/>
+    </svg>
+  )
+}
+
 const OFFICIAL_HASH = '28AA513A060F866C707DFA4B3E1A351397E394AEFA9C12906951B669631AE857'
 
 function HashVerifier() {
@@ -64,6 +86,9 @@ export default function Download() {
               {formatCount(downloads)} descargas totales
             </p>
           )}
+          <Link to="/changelog" className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors mt-3">
+            Ver registro de cambios →
+          </Link>
         </div>
       </div>
 
@@ -76,9 +101,12 @@ export default function Download() {
               <img src="/images/zahorifields_combinada.svg" alt="ZahoriFields" className="h-16 w-auto" />
             </div>
             <div className="flex items-center justify-between mb-6">
-              <div>
-                <p className="text-sm font-semibold text-text">Windows</p>
-                <p className="text-xs font-mono text-muted mt-0.5">v1.1 · 2026</p>
+              <div className="flex items-center gap-3">
+                <WindowsIcon className="w-7 h-7 text-[#0078d4]" />
+                <div>
+                  <p className="text-sm font-semibold text-text">Windows</p>
+                  <p className="text-xs font-mono text-muted mt-0.5">v1.1 · 2026</p>
+                </div>
               </div>
               <span className="text-[10px] font-mono text-accent border border-accent bg-accent-light px-2 py-0.5 rounded-sm">Disponible</span>
             </div>
@@ -105,6 +133,11 @@ export default function Download() {
           <div className="border border-border bg-white p-6 rounded-sm flex-1">
             <div className="flex items-center justify-between mb-6">
               <div>
+                <div className="flex items-center gap-2 mb-1.5">
+                  <AppleIcon className="w-5 h-5 text-muted" />
+                  <LinuxIcon className="w-5 h-5 text-muted" />
+                  <WindowsIcon className="w-5 h-5 text-muted" />
+                </div>
                 <p className="text-sm font-semibold text-text">Docker</p>
                 <p className="text-xs font-mono text-muted mt-0.5">Mac · Linux · Windows</p>
               </div>

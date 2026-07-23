@@ -13,6 +13,7 @@ import Galeria from './pages/Galeria'
 import Blog from './pages/Blog'
 import BlogCWSI from './pages/BlogCWSI'
 import BlogMascaras from './pages/BlogMascaras'
+import Changelog from './pages/Changelog'
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/cwsi" element={<BlogCWSI />} />
             <Route path="/blog/mascaras-vegetacion" element={<BlogMascaras />} />
+            <Route path="/changelog" element={<Changelog />} />
           </Routes>
         </main>
         <Footer />
