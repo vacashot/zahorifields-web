@@ -15,7 +15,7 @@ const GitHubLogo = ({ className }) => (
 const channels = [
   { icon: GitHubLogo, title: 'GitHub Issues', desc: 'Reporta errores, sugiere funcionalidades o consulta el estado del desarrollo.', label: 'Abrir un issue', url: 'https://github.com/vacashot/zahori_issues_publicas/issues' },
   { icon: DiscordLogo, title: 'Discord', desc: 'Canal de la comunidad para preguntas, tutoriales y compartir resultados.', label: 'Unirse al servidor', url: 'https://discord.gg/KugKKyMbJe' },
-  { icon: Mail, title: 'Contacto ITACYL', desc: 'Consultas institucionales, colaboraciones y soporte para centros de investigación.', label: 'Enviar correo', url: 'mailto:info@itacyl.es' },
+  { icon: Mail, title: 'Contacto ITACYL', desc: 'Consultas institucionales, colaboraciones y soporte para centros de investigación.', label: 'Contacta con nosotros', url: 'https://www.itacyl.es/contacta-con-nosotros' },
   { icon: BookOpen, title: 'Documentación', desc: 'Guías de usuario, tutoriales paso a paso y referencia de todos los índices.', label: 'Ir a la docs', url: '/docs' },
 ]
 
