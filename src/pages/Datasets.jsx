@@ -28,6 +28,15 @@ const datasets = [
     notesJsx: <span>Ensayos <a href="https://www.opendronemap.org/fieldimager" target="_blank" rel="noreferrer" className="text-accent hover:underline">FIELDimageR</a></span>,
     url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX2_RGB.tif',
   },
+  {
+    name: 'EX3_RGB.tif',
+    sensor: 'RGB',
+    bands: { red: 1, green: 2, blue: 3, redEdge: null, nir: null, thermal: null },
+    range: '0 – 255',
+    size: '42.0 MB',
+    notesJsx: <span>Ensayos <a href="https://www.opendronemap.org/fieldimager" target="_blank" rel="noreferrer" className="text-accent hover:underline">FIELDimageR</a></span>,
+    url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX3_RGB.tif',
+  },
 ]
 
 const bandInfo = [
