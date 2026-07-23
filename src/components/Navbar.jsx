@@ -27,7 +27,13 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-200 ${scrolled ? 'shadow-sm' : ''} border-b border-border`}>
       <div className="max-w-screen-xl mx-auto px-8 h-16 flex items-center justify-between gap-6">
 
-        <Link to="/" className="flex items-center shrink-0">
+        <Link to="/" className="flex items-center gap-2 shrink-0">
+          <img
+            src="/images/zahorifields_dron_animado.svg"
+            alt=""
+            aria-hidden="true"
+            className="h-8 w-auto"
+          />
           <img
             src="/images/logo-horizontal.png"
             alt="ZahoriFields"

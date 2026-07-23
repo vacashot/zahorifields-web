@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92.265 89.189" role="img" aria-labelledby="title desc">
+  <title id="title">Símbolo animado de ZahoriFields</title>
+  <desc id="desc">Dron con cuatro rotores giratorios y un movimiento vertical suave.</desc>
+
+  <!-- Todo el dron realiza un movimiento de vuelo estacionario muy leve -->
+  <g id="drone">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 0 -0.8; 0 0"
+      keyTimes="0; 0.5; 1"
+      dur="2.4s"
+      repeatCount="indefinite"/>
+
+    <!-- Rotor superior izquierdo -->
+    <g>
+      <path d="M18.952,30.747a19.783,19.783,0,0,1,4.633,7.441,16.662,16.662,0,1,1,16.961-16.9A19.891,19.891,0,0,1,33.1,16.6l-2.119-2.115a10,10,0,0,0-14.141,14.14Z" fill="#010101"/>
+      <animateTransform attributeName="transform" type="rotate"
+        from="0 23.885 21.527" to="360 23.885 21.527"
+        dur="0.72s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Rotor superior derecho -->
+    <g>
+      <path d="M61.382,16.6a19.813,19.813,0,0,1-7.441,4.636,16.661,16.661,0,1,1,16.9,16.958,19.8,19.8,0,0,1,4.693-7.447l2.113-2.123A10,10,0,0,0,63.5,14.484Z" fill="#010101"/>
+      <animateTransform attributeName="transform" type="rotate"
+        from="360 70.601 21.534" to="0 70.601 21.534"
+        dur="0.72s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Rotor inferior derecho -->
+    <g>
+      <path d="M75.528,59.028A19.779,19.779,0,0,1,70.9,51.587a16.662,16.662,0,1,1-16.962,16.9,19.816,19.816,0,0,1,7.451,4.694L63.5,75.291A10,10,0,1,0,77.645,61.15Z" fill="#010101"/>
+      <animateTransform attributeName="transform" type="rotate"
+        from="0 70.599 68.248" to="360 70.599 68.248"
+        dur="0.72s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Rotor inferior izquierdo -->
+    <g>
+      <path d="M33.1,73.175a19.787,19.787,0,0,1,7.441-4.629,16.662,16.662,0,1,1-16.9-16.965,19.9,19.9,0,0,1-4.694,7.454l-2.112,2.116A10,10,0,0,0,30.979,75.292Z" fill="#010101"/>
+      <animateTransform attributeName="transform" type="rotate"
+        from="360 23.880 68.242" to="0 23.880 68.242"
+        dur="0.72s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Cuerpo central, permanece estable -->
+    <path d="M70.811,63.742a26.663,26.663,0,0,1,0-37.708l4.476-4.479-4.713-4.713L66.1,21.315a26.663,26.663,0,0,1-37.712,0L23.9,16.842l-4.713,4.713,4.476,4.479a26.666,26.666,0,0,1,.017,37.7l-4.492,4.492,4.713,4.713,4.479-4.473a26.661,26.661,0,0,1,37.711,0l4.479,4.473,4.713-4.713Z" fill="#010101"/>
+  </g>
+</svg>
