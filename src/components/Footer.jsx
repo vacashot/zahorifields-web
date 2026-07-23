@@ -60,7 +60,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-border bg-[#1a1a1a]">
+      <div className="border-t border-border bg-[#2d3a2e]">
         <div className="max-w-screen-xl mx-auto px-6 py-5 flex justify-center">
           <img
             src="/images/FEMPA_PEPAC_Agricultura_NEG_JCYL.svg"
