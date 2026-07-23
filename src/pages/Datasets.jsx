@@ -50,7 +50,7 @@ const datasets = [
     name: 'LST_noon.tif',
     sensor: 'FLIR Térmica',
     bands: { red: null, green: null, blue: null, redEdge: null, nir: null, thermal: 1 },
-    range: '0 – 1',
+    range: 'Tª (°C)',
     size: '27.1 MB',
     notesJsx: <span>Mandarinos · Palermo · <a href="https://zenodo.org/records/6516722" target="_blank" rel="noreferrer" className="text-accent hover:underline">Zenodo</a></span>,
     url: 'https://zenodo.org/records/6516722',
