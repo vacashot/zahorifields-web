@@ -53,7 +53,7 @@ const datasets = [
     range: 'Tª (°C)',
     size: '27.1 MB',
     notesJsx: <span>Mandarinos · Palermo · <a href="https://zenodo.org/records/6516722" target="_blank" rel="noreferrer" className="text-accent hover:underline">Zenodo</a></span>,
-    url: 'https://zenodo.org/records/6516722',
+    url: 'https://zenodo.org/records/6516722/files/LST_noon.tif?download=1',
   },
 ]
 
