@@ -60,12 +60,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-border">
-        <div className="max-w-screen-xl mx-auto px-6 py-6 flex justify-center">
+      <div className="border-t border-border bg-[#1a1a1a]">
+        <div className="max-w-screen-xl mx-auto px-6 py-5 flex justify-center">
           <img
             src="/images/FEMPA_PEPAC_Agricultura_NEG_JCYL.svg"
             alt="FEMPA · PEPAC · Agricultura · Junta de Castilla y León"
-            className="h-14 w-auto"
+            className="h-12 w-auto"
           />
         </div>
       </div>
