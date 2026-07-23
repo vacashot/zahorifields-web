@@ -59,7 +59,7 @@ const datasets = [
     name: 'Multispectral.zip',
     sensor: 'MicaSense Altum',
     bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: null },
-    range: '0 – 65535',
+    range: '0 – 1',
     size: '889.2 MB',
     notesJsx: <span>Vivero Forestal · <a href="https://zenodo.org/records/8283176" target="_blank" rel="noreferrer" className="text-accent hover:underline">Zenodo</a></span>,
     url: 'https://zenodo.org/records/8283176/files/Multispectral.zip?download=1',
