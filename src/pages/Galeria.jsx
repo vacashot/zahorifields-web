@@ -2,10 +2,13 @@ import { useState } from 'react'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const items = [
-  { src: '/galeria/edicion.jpg', type: 'image', caption: 'Panel de edición' },
-  { src: '/galeria/indices.jpg', type: 'image', caption: 'Índices de vegetación' },
-  { src: '/galeria/ndvi.jpg',    type: 'image', caption: 'Mapa NDVI' },
-  { src: '/galeria/aoi.jpg',     type: 'image', caption: 'Área de interés (AOI)' },
+  { src: '/galeria/edicion.jpg',              type: 'image', caption: 'Panel de edición' },
+  { src: '/galeria/indices.jpg',              type: 'image', caption: 'Índices de vegetación' },
+  { src: '/galeria/ndvi.jpg',                 type: 'image', caption: 'Mapa NDVI' },
+  { src: '/galeria/aoi.jpg',                  type: 'image', caption: 'Área de interés (AOI)' },
+  { src: '/galeria/modulo_operacones_dron1.jpg', type: 'image', caption: 'Módulo operaciones dron' },
+  { src: '/galeria/plan_aplicacion.jpg',      type: 'image', caption: 'Plan de aplicación' },
+  { src: '/galeria/vra_zonificacion.jpg',     type: 'image', caption: 'VRA · Zonificación' },
 ]
 
 function MediaThumb({ item, onClick }) {
