@@ -72,6 +72,9 @@ export default function Download() {
         <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mb-14">
           {/* Windows */}
           <div className="border-2 border-accent bg-white p-6 rounded-sm flex-1">
+            <div className="flex justify-center mb-4">
+              <img src="/images/zahorifields_dron_animado.svg" alt="" aria-hidden="true" className="h-16 w-auto" />
+            </div>
             <div className="flex items-center justify-between mb-6">
               <div>
                 <p className="text-sm font-semibold text-text">Windows</p>
