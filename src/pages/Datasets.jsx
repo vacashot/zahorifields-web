@@ -73,6 +73,15 @@ const datasets = [
     notesJsx: <span><a href="https://ecothermographylab.com/" target="_blank" rel="noreferrer" className="text-accent hover:underline">Palm Oil</a></span>,
     url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/201.tif',
   },
+  {
+    name: 'orthomosaic.zip',
+    sensor: 'DJI Phantom 4',
+    bands: { red: 1, green: 2, blue: 3, redEdge: null, nir: null, thermal: null },
+    range: '0 – 256',
+    size: '786.8 MB',
+    notesJsx: <span><a href="https://zenodo.org/records/7271542?preview_file=orthomosaic.zip" target="_blank" rel="noreferrer" className="text-accent hover:underline">Pistacho · Zenodo</a></span>,
+    url: 'https://zenodo.org/records/7271542/files/orthomosaic.zip?download=1',
+  },
 ]
 
 const bandInfo = [
