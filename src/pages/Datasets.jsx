@@ -56,6 +56,15 @@ const datasets = [
     url: 'https://github.com/vacashot/zahorifields-web/releases/download/v1.1-datasets/EX_DSM1.tif',
   },
   {
+    name: 'Multispectral.zip',
+    sensor: 'MicaSense Altum',
+    bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: null },
+    range: '0 – 65535',
+    size: '889.2 MB',
+    notesJsx: <span>Vivero Forestal · <a href="https://zenodo.org/records/8283176" target="_blank" rel="noreferrer" className="text-accent hover:underline">Zenodo</a></span>,
+    url: 'https://zenodo.org/records/8283176/files/Multispectral.zip?download=1',
+  },
+  {
     name: 'finca_colza_fertinagro_03_12_2025_altum_20m.tif',
     sensor: 'MicaSense Altum',
     bands: { red: 3, green: 2, blue: 1, redEdge: 4, nir: 5, thermal: 6 },
