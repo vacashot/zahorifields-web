@@ -14,6 +14,7 @@ const items = [
   { src: '/galeria/swipe_mascara_pistacho.jpg', type: 'image', caption: 'Swipe máscara · Pistacho' },
   { src: '/galeria/chm.jpg',            type: 'image', caption: 'CHM · Modelo de altura de copa' },
   { src: '/galeria/centro_de_ayuda.jpg', type: 'image', caption: 'Centro de ayuda' },
+  { src: '/galeria/captura_descarga_2026.jpg', type: 'image', caption: 'Página de descarga' },
 ]
 
 function MediaThumb({ item, onClick }) {
