@@ -15,6 +15,8 @@ const items = [
   { src: '/galeria/chm.jpg',            type: 'image', caption: 'CHM · Modelo de altura de copa' },
   { src: '/galeria/centro_de_ayuda.jpg', type: 'image', caption: 'Centro de ayuda' },
   { src: '/galeria/captura_descarga_2026.jpg', type: 'image', caption: 'Página de descarga' },
+  { src: '/galeria/captura_changelog_2026.jpg', type: 'image', caption: 'VRA · Zonificación por índice de vegetación' },
+  { src: '/galeria/captura_descarga2_2026.jpg', type: 'image', caption: 'Estrés Térmico · CWSI en olivar' },
 ]
 
 function MediaThumb({ item, onClick }) {
