@@ -311,29 +311,48 @@ export default function Download() {
         </div>
       </div>
 
-      {/* Selector centrado */}
+      {/* Selector — tarjetas grandes */}
       <div className="border-b border-border bg-surface-2">
-        <div className="max-w-screen-xl mx-auto px-6 py-6 flex justify-center">
-          <div className="inline-flex rounded-sm border border-border bg-white overflow-hidden shadow-sm">
-            <button
-              onClick={() => setOs('windows')}
-              className={`flex items-center gap-3 px-8 py-4 text-sm font-medium transition-all duration-150 ${os === 'windows' ? 'bg-accent text-white' : 'text-muted hover:text-text hover:bg-surface-2'}`}
-            >
-              <WindowsIcon className="w-5 h-5" />
-              Windows
-            </button>
-            <div className="w-px bg-border" />
-            <button
-              onClick={() => setOs('docker')}
-              className={`flex items-center gap-3 px-8 py-4 text-sm font-medium transition-all duration-150 ${os === 'docker' ? 'bg-accent text-white' : 'text-muted hover:text-text hover:bg-surface-2'}`}
-            >
-              <DockerIcon className="w-5 h-5" />
-              Docker
-              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-sm border ${os === 'docker' ? 'border-white/40 text-white/70' : 'border-border text-muted'}`}>
-                Mac · Linux · Win
-              </span>
-            </button>
-          </div>
+        <div className="max-w-screen-xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-center gap-4 max-w-2xl mx-auto">
+          {/* Windows */}
+          <button
+            onClick={() => setOs('windows')}
+            className={`flex-1 max-w-xs text-left p-6 rounded-sm border-2 bg-white transition-all duration-150 cursor-pointer ${os === 'windows' ? 'border-accent shadow-md' : 'border-border hover:border-accent/50 hover:shadow-sm'}`}
+          >
+            <div className="flex justify-center mb-4">
+              <img src="/images/zahorifields_combinada.svg" alt="ZahoriFields" className="h-14 w-auto" />
+            </div>
+            <div className="flex items-center gap-3 mb-2">
+              <WindowsIcon className="w-6 h-6 text-[#0078d4]" />
+              <div>
+                <p className="text-sm font-semibold text-text">Windows</p>
+                <p className="text-xs font-mono text-muted">v2.0.0-beta.1 · 2026</p>
+              </div>
+              <span className={`ml-auto text-[10px] font-mono px-2 py-0.5 rounded-sm border ${os === 'windows' ? 'border-accent text-accent bg-accent-light' : 'border-border text-muted bg-surface-2'}`}>Disponible</span>
+            </div>
+          </button>
+
+          {/* Docker */}
+          <button
+            onClick={() => setOs('docker')}
+            className={`flex-1 max-w-xs text-left p-6 rounded-sm border-2 bg-white transition-all duration-150 cursor-pointer ${os === 'docker' ? 'border-accent shadow-md' : 'border-border hover:border-accent/50 hover:shadow-sm'}`}
+          >
+            <div className="flex justify-center mb-4">
+              <DockerIcon className="w-14 h-14 text-[#2496ED]" />
+            </div>
+            <div className="flex items-center gap-2 mb-1.5">
+              <AppleIcon className="w-4 h-4 text-muted" />
+              <LinuxIcon className="w-4 h-4 text-muted" />
+              <WindowsIcon className="w-4 h-4 text-muted" />
+            </div>
+            <div className="flex items-center gap-3">
+              <div>
+                <p className="text-sm font-semibold text-text">Docker</p>
+                <p className="text-xs font-mono text-muted">Mac · Linux · Windows</p>
+              </div>
+              <span className={`ml-auto text-[10px] font-mono px-2 py-0.5 rounded-sm border ${os === 'docker' ? 'border-accent text-accent bg-accent-light' : 'border-border text-muted bg-surface-2'}`}>Avanzado</span>
+            </div>
+          </button>
         </div>
       </div>
 
