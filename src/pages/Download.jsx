@@ -32,7 +32,7 @@ function DockerIcon({ className }) {
   )
 }
 
-const OFFICIAL_HASH = '28AA513A060F866C707DFA4B3E1A351397E394AEFA9C12906951B669631AE857'
+const OFFICIAL_HASH = '27981C9CA2838488847133DEBC6BA800BDAFF85E66D042E5301EBC8CE65C9A7E'
 
 function HashVerifier() {
   const [input, setInput] = useState('')
@@ -112,19 +112,19 @@ export default function Download() {
                 <WindowsIcon className="w-7 h-7 text-[#0078d4]" />
                 <div>
                   <p className="text-sm font-semibold text-text">Windows</p>
-                  <p className="text-xs font-mono text-muted mt-0.5">v1.1 · 2026</p>
+                  <p className="text-xs font-mono text-muted mt-0.5">v2.0.0-beta.1 · 2026</p>
                 </div>
               </div>
               <span className="text-[10px] font-mono text-accent border border-accent bg-accent-light px-2 py-0.5 rounded-sm">Disponible</span>
             </div>
             <a
-              href="https://github.com/vacashot/zahorifields-web/releases/download/v1.0.0/ZahoriFields_v1.0.0_Windows.zip"
+              href="https://github.com/vacashot/zahorifields-web/releases/download/v2.0.0-beta.1/ZahoriFields-Setup-2.0.0-beta.1.zip"
               className="btn-primary w-full justify-center"
             >
               <DownloadIcon className="w-4 h-4" />
               Descargar .zip
             </a>
-            <p className="text-[11px] text-muted mt-3 text-center">Windows · ~144 MB · v1.1</p>
+            <p className="text-[11px] text-muted mt-3 text-center">Windows · ~211 MB · v2.0.0-beta.1</p>
 
 
             <div className="mt-3 flex items-start gap-2 bg-yellow-50 border border-yellow-200 rounded-sm px-3 py-2">
@@ -173,7 +173,7 @@ export default function Download() {
           <p className="text-sm font-medium text-text mb-2">Cómo verificarlo en Windows:</p>
           <p className="text-xs text-muted mb-3">Abre PowerShell y ejecuta:</p>
           <div className="bg-surface-2 border border-border rounded-sm px-4 py-3 mb-3">
-            <p className="font-mono text-xs text-text select-all">{'Get-FileHash "C:\\ruta\\al\\archivo\\ZahoriFields_v1.0.0_Windows.zip" -Algorithm SHA256'}</p>
+            <p className="font-mono text-xs text-text select-all">{'Get-FileHash "C:\\ruta\\al\\archivo\\ZahoriFields-Setup-2.0.0-beta.1.zip" -Algorithm SHA256'}</p>
           </div>
           <p className="text-xs text-muted leading-relaxed">
             Si el resultado coincide con el hash que aparece en la tarjeta de descarga, el archivo es auténtico.

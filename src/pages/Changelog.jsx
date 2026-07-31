@@ -4,6 +4,23 @@ import { ChevronDown } from 'lucide-react'
 
 const versions = [
   {
+    version: '2.0.0-beta.1',
+    date: '31 jul 2026',
+    highlights: ['Nueva versión mayor', 'Beta pública', 'Windows'],
+    changes: {
+      'Novedades': [
+        'Primera beta pública de la versión 2.0 de ZahoriFields para Windows.',
+        'Arquitectura interna renovada con mejoras de rendimiento y estabilidad.',
+        'Nuevos módulos y funcionalidades en desarrollo activo — se publicarán las notas completas con la versión estable.',
+      ],
+      'Aviso de versión beta': [
+        'Esta versión es una beta pública: puede contener errores o funciones incompletas.',
+        'Se recomienda usar en entornos de prueba antes de producción.',
+        'Para reportar incidencias, usa la sección GitHub Issues en la página de Comunidad.',
+      ],
+    },
+  },
+  {
     version: '1.1.0',
     date: '15 jun 2026',
     highlights: ['Módulo de estrés hídrico CWSI', 'Máscaras de vegetación', 'Soporte Docker'],
