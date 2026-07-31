@@ -126,8 +126,14 @@ function WindowsContent() {
       {/* Guía instalación */}
       <div>
         <span className="section-label">Guía de instalación</span>
-        <div className="mt-6 border border-border rounded-sm overflow-hidden bg-black max-w-2xl">
-          <video src="/instalacion/instalacion.mp4" controls className="w-full" poster="/instalacion/instalacion_1.jpg" />
+        <div className="mt-6 border border-border rounded-sm overflow-hidden bg-black max-w-2xl aspect-video">
+          <iframe
+            src="https://www.youtube.com/embed/Sm2XaKb7ubQ"
+            title="Instalación ZahoriFields"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          />
         </div>
         <div className="mt-8 space-y-10">
           {[
