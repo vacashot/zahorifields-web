@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Download as DownloadIcon, Terminal, CheckCircle, AlertCircle, ArrowRight, ShieldCheck, ShieldX, AlertTriangle } from 'lucide-react'
+import { Download as DownloadIcon, CheckCircle, AlertCircle, ArrowRight, ShieldCheck, ShieldX, AlertTriangle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useDownloadCount, formatCount } from '../hooks/useStats'
 
@@ -180,14 +180,87 @@ export default function Download() {
           </p>
         </div>
 
-        {/* Nota */}
-        <div className="border border-border bg-accent-light p-5 flex gap-4 mb-14 rounded-sm">
-          <Terminal className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-          <div>
-            <p className="text-sm text-text font-medium mb-1">Instalación en un paso</p>
-            <p className="text-xs text-muted leading-relaxed">
-              Extrae el archivo ZIP en cualquier carpeta y ejecuta <span className="font-mono text-text">ZahoriFields.exe</span>. No requiere instalador ni permisos de administrador.
+        {/* Guía de instalación */}
+        <div className="mb-14">
+          <span className="section-label">Guía de instalación</span>
+
+          <div className="mt-4 flex items-start gap-3 border border-yellow-200 bg-yellow-50 rounded-sm px-5 py-4 mb-8">
+            <AlertTriangle className="w-4 h-4 text-yellow-600 mt-0.5 shrink-0" />
+            <p className="text-xs text-yellow-700 leading-relaxed">
+              Windows puede mostrar un aviso de SmartScreen al ejecutar el instalador. Haz clic en <strong>"Más información"</strong> y luego en <strong>"Ejecutar de todas formas"</strong> para continuar.
             </p>
+          </div>
+
+          {/* Vídeo */}
+          <div className="border border-border rounded-sm overflow-hidden bg-black mb-10 max-w-2xl">
+            <video src="/instalacion/instalacion.mp4" controls className="w-full" poster="/instalacion/instalacion_1.jpg" />
+          </div>
+
+          {/* Pasos */}
+          <div className="space-y-10">
+            {[
+              {
+                n: '01',
+                title: '¿Para quién instalar?',
+                desc: 'Elige si instalar solo para tu usuario (recomendado, sin permisos de administrador) o para todos los usuarios del equipo. Haz clic en "Siguiente".',
+                img: '/instalacion/instalacion_1.jpg',
+              },
+              {
+                n: '02',
+                title: 'Carpeta de instalación',
+                desc: 'Por defecto se instala en tu carpeta de usuario. Puedes cambiarla con "Examinar". Necesitas ~794 MB libres. Pulsa "Instalar" para comenzar.',
+                img: '/instalacion/instalacion_2.jpg',
+              },
+              {
+                n: '03',
+                title: 'Instalación completada',
+                desc: 'Cuando aparezca la pantalla de finalización, ZahoriFields está listo. Deja marcada "Ejecutar ZahoriFields" y pulsa "Terminar" para abrirlo.',
+                img: '/instalacion/instalacion_3.jpg',
+              },
+            ].map(({ n, title, desc, img }) => (
+              <div key={n} className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <p className="font-mono text-xs text-accent mb-2 font-medium">{n}</p>
+                  <h3 className="text-sm font-semibold text-text mb-2">{title}</h3>
+                  <p className="text-xs text-muted leading-relaxed">{desc}</p>
+                </div>
+                <div className="border border-border rounded-sm overflow-hidden shadow-sm">
+                  <img src={img} alt={title} className="w-full object-cover" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desinstalación */}
+          <div className="mt-12 pt-10 border-t border-border">
+            <p className="text-xs font-mono tracking-widest text-muted uppercase mb-6">Desinstalación</p>
+            <div className="space-y-10">
+              {[
+                {
+                  n: '01',
+                  title: 'Inicia el desinstalador',
+                  desc: 'Ve a Configuración → Aplicaciones, busca "ZahoriFields" y haz clic en "Desinstalar". Asegúrate de que la aplicación no esté en ejecución.',
+                  img: '/instalacion/desinstalacion_1.jpg',
+                },
+                {
+                  n: '02',
+                  title: 'Desinstalación completada',
+                  desc: 'Cuando aparezca la pantalla de finalización, ZahoriFields ha sido eliminado del sistema. Pulsa "Terminar".',
+                  img: '/instalacion/desinstalacion_2.jpg',
+                },
+              ].map(({ n, title, desc, img }) => (
+                <div key={n} className="grid md:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <p className="font-mono text-xs text-accent mb-2 font-medium">{n}</p>
+                    <h3 className="text-sm font-semibold text-text mb-2">{title}</h3>
+                    <p className="text-xs text-muted leading-relaxed">{desc}</p>
+                  </div>
+                  <div className="border border-border rounded-sm overflow-hidden shadow-sm">
+                    <img src={img} alt={title} className="w-full object-cover" />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
