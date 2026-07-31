@@ -8,7 +8,6 @@ import Docs from './pages/Docs'
 import Comunidad from './pages/Comunidad'
 import Swag from './pages/Swag'
 import Code from './pages/Code'
-import Docker from './pages/Docker'
 import Galeria from './pages/Galeria'
 import Blog from './pages/Blog'
 import BlogCWSI from './pages/BlogCWSI'
@@ -29,7 +28,6 @@ export default function App() {
             <Route path="/comunidad" element={<Comunidad />} />
             <Route path="/swag" element={<Swag />} />
             <Route path="/code" element={<Code />} />
-            <Route path="/docker" element={<Docker />} />
             <Route path="/galeria" element={<Galeria />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/cwsi" element={<BlogCWSI />} />

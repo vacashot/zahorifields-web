@@ -97,7 +97,7 @@ function WindowsContent() {
       {/* Descarga */}
       <div className="max-w-sm mx-auto">
         <div className="flex justify-center mb-5">
-          <img src="/images/zahorifields_combinada.svg" alt="ZahoriFields" className="h-14 w-auto" />
+          <img src="/images/zahorifields-icono.svg" alt="ZahoriFields" className="h-14 w-auto" />
         </div>
         <a
           href="https://github.com/vacashot/zahorifields-web/releases/download/v2.0.0-beta.1/ZahoriFields-Setup-2.0.0-beta.1.zip"
