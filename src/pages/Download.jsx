@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Download as DownloadIcon, CheckCircle, AlertCircle, ArrowRight, ShieldCheck, ShieldX, AlertTriangle } from 'lucide-react'
+import { Download as DownloadIcon, CheckCircle, AlertCircle, ShieldCheck, ShieldX, AlertTriangle, ExternalLink } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useDownloadCount, formatCount } from '../hooks/useStats'
 
@@ -41,7 +41,7 @@ function HashVerifier() {
   const checked = normalized.length === 64
 
   return (
-    <div className="mt-3 bg-surface-2 border border-border rounded-sm px-3 py-2">
+    <div className="bg-surface-2 border border-border rounded-sm px-4 py-3">
       <p className="text-[10px] font-mono text-muted mb-1">SHA-256 oficial</p>
       <p className="text-[10px] font-mono text-text break-all select-all mb-3">{OFFICIAL_HASH}</p>
       <p className="text-[10px] text-muted mb-1">Pega aquí el hash de tu archivo para verificar:</p>
@@ -62,6 +62,19 @@ function HashVerifier() {
   )
 }
 
+function CopyBlock({ code }) {
+  const [copied, setCopied] = useState(false)
+  const copy = () => { navigator.clipboard.writeText(code); setCopied(true); setTimeout(() => setCopied(false), 2000) }
+  return (
+    <div className="relative bg-[#1a1a1a] rounded-sm mb-4 overflow-x-auto">
+      <button onClick={copy} className="absolute top-3 right-3 text-[10px] font-mono px-2 py-1 rounded-sm border border-zinc-600 text-zinc-400 hover:text-white hover:border-zinc-400 transition-colors">
+        {copied ? '✓ Copiado' : 'Copiar'}
+      </button>
+      <pre className="text-xs text-green-400 font-mono leading-relaxed p-4 pr-20">{code}</pre>
+    </div>
+  )
+}
+
 const requirements = [
   { label: 'Sistema operativo', min: 'Windows 10 64-bit', rec: 'Windows 11 64-bit' },
   { label: 'RAM', min: '8 GB', rec: '16 GB o más' },
@@ -77,146 +90,71 @@ const faqs = [
   { q: '¿Es de pago?', a: 'No. ZahoriFields es gratuito y de código abierto, desarrollado por ITACYL como herramienta pública para investigadores y agricultores.' },
 ]
 
-export default function Download() {
+function WindowsContent() {
   const [openFaq, setOpenFaq] = useState(null)
-  const downloads = useDownloadCount()
-
   return (
-    <div className="pt-16">
-      <div className="bg-white border-b border-border">
-        <div className="max-w-screen-xl mx-auto px-6 py-16">
-          <span className="section-label">Software</span>
-          <h1 className="text-4xl font-semibold tracking-tight text-text mb-3">Download</h1>
-          <p className="text-muted text-sm max-w-md">Descarga ZahoriFields para tu sistema operativo. Gratuito, sin registro requerido.</p>
-          {downloads != null && (
-            <p className="text-[11px] font-mono text-accent mt-4">
-              {formatCount(downloads)} descargas totales
-            </p>
-          )}
-          <Link to="/changelog" className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors mt-3">
+    <div className="space-y-14">
+      {/* Descarga */}
+      <div className="max-w-sm mx-auto">
+        <div className="flex justify-center mb-5">
+          <img src="/images/zahorifields_combinada.svg" alt="ZahoriFields" className="h-14 w-auto" />
+        </div>
+        <a
+          href="https://github.com/vacashot/zahorifields-web/releases/download/v2.0.0-beta.1/ZahoriFields-Setup-2.0.0-beta.1.zip"
+          className="btn-primary w-full justify-center text-base py-3"
+        >
+          <DownloadIcon className="w-5 h-5" />
+          Descargar para Windows
+        </a>
+        <p className="text-[11px] text-muted mt-2 text-center font-mono">~211 MB · v2.0.0-beta.1 · Windows 10/11</p>
+        <div className="mt-4 flex items-start gap-2 bg-yellow-50 border border-yellow-200 rounded-sm px-3 py-2">
+          <AlertTriangle className="w-3.5 h-3.5 text-yellow-600 mt-0.5 shrink-0" />
+          <p className="text-[10px] text-yellow-800 leading-relaxed">
+            Windows puede mostrar un aviso de SmartScreen. Haz clic en <strong>"Más información"</strong> → <strong>"Ejecutar de todas formas"</strong>.
+          </p>
+        </div>
+        <div className="mt-3">
+          <HashVerifier />
+        </div>
+        <div className="mt-3 text-center">
+          <Link to="/changelog" className="text-xs text-muted hover:text-accent transition-colors">
             Ver registro de cambios →
           </Link>
         </div>
       </div>
 
-      <div className="max-w-screen-xl mx-auto px-6 py-14">
-        {/* OS Cards */}
-        <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mb-14">
-          {/* Windows */}
-          <div className="border-2 border-accent bg-white p-6 rounded-sm flex-1 hover:shadow-md transition-shadow duration-200">
-            <div className="flex justify-center mb-4">
-              <img src="/images/zahorifields_combinada.svg" alt="ZahoriFields" className="h-16 w-auto" />
-            </div>
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-3">
-                <WindowsIcon className="w-7 h-7 text-[#0078d4]" />
-                <div>
-                  <p className="text-sm font-semibold text-text">Windows</p>
-                  <p className="text-xs font-mono text-muted mt-0.5">v2.0.0-beta.1 · 2026</p>
-                </div>
-              </div>
-              <span className="text-[10px] font-mono text-accent border border-accent bg-accent-light px-2 py-0.5 rounded-sm">Disponible</span>
-            </div>
-            <a
-              href="https://github.com/vacashot/zahorifields-web/releases/download/v2.0.0-beta.1/ZahoriFields-Setup-2.0.0-beta.1.zip"
-              className="btn-primary w-full justify-center"
-            >
-              <DownloadIcon className="w-4 h-4" />
-              Descargar .zip
-            </a>
-            <p className="text-[11px] text-muted mt-3 text-center">Windows · ~211 MB · v2.0.0-beta.1</p>
-
-
-            <div className="mt-3 flex items-start gap-2 bg-yellow-50 border border-yellow-200 rounded-sm px-3 py-2">
-              <AlertTriangle className="w-3.5 h-3.5 text-yellow-600 mt-0.5 shrink-0" />
-              <p className="text-[10px] text-yellow-800 leading-relaxed">
-                Windows puede mostrar un aviso de SmartScreen al abrir el programa. Es normal en software sin firma comercial. Haz clic en "Más información" → "Ejecutar de todas formas".
-              </p>
-            </div>
-            <HashVerifier />
-          </div>
-
-          {/* Docker */}
-          <div className="border border-border bg-white p-6 rounded-sm flex-1 hover:border-accent hover:shadow-md transition-all duration-200">
-            <div className="flex justify-center mb-4">
-              <DockerIcon className="w-14 h-14 text-[#2496ED]" />
-            </div>
-            <div className="flex items-center justify-between mb-6">
+      {/* Guía instalación */}
+      <div>
+        <span className="section-label">Guía de instalación</span>
+        <div className="mt-6 border border-border rounded-sm overflow-hidden bg-black max-w-2xl">
+          <video src="/instalacion/instalacion.mp4" controls className="w-full" poster="/instalacion/instalacion_1.jpg" />
+        </div>
+        <div className="mt-8 space-y-10">
+          {[
+            { n: '01', title: '¿Para quién instalar?', desc: 'Elige si instalar solo para tu usuario (recomendado, sin permisos de administrador) o para todos los usuarios del equipo. Haz clic en "Siguiente".', img: '/instalacion/instalacion_1.jpg' },
+            { n: '02', title: 'Carpeta de instalación', desc: 'Por defecto se instala en tu carpeta de usuario. Puedes cambiarla con "Examinar". Necesitas ~794 MB libres. Pulsa "Instalar" para comenzar.', img: '/instalacion/instalacion_2.jpg' },
+            { n: '03', title: 'Instalación completada', desc: 'Cuando aparezca la pantalla de finalización, ZahoriFields está listo. Deja marcada "Ejecutar ZahoriFields" y pulsa "Terminar" para abrirlo.', img: '/instalacion/instalacion_3.jpg' },
+          ].map(({ n, title, desc, img }) => (
+            <div key={n} className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="flex items-center gap-2 mb-1.5">
-                  <AppleIcon className="w-4 h-4 text-muted" />
-                  <LinuxIcon className="w-4 h-4 text-muted" />
-                  <WindowsIcon className="w-4 h-4 text-muted" />
-                </div>
-                <p className="text-sm font-semibold text-text">Docker</p>
-                <p className="text-xs font-mono text-muted mt-0.5">Mac · Linux · Windows</p>
+                <p className="font-mono text-xs text-accent mb-2 font-medium">{n}</p>
+                <h3 className="text-sm font-semibold text-text mb-2">{title}</h3>
+                <p className="text-xs text-muted leading-relaxed">{desc}</p>
               </div>
-              <span className="text-[10px] font-mono text-muted border border-border bg-surface-2 px-2 py-0.5 rounded-sm">Avanzado</span>
+              <div className="border border-border rounded-sm overflow-hidden shadow-sm">
+                <img src={img} alt={title} className="w-full object-cover" />
+              </div>
             </div>
-            <Link
-              to="/docker"
-              className="btn-ghost w-full justify-center"
-            >
-              <ArrowRight className="w-4 h-4" />
-              Ver instrucciones
-            </Link>
-            <p className="text-[11px] text-muted mt-3 text-center">Requiere Docker Desktop</p>
-          </div>
+          ))}
         </div>
 
-        {/* Verificación de integridad */}
-        <div className="border border-border bg-white rounded-sm p-6 mb-14">
-          <p className="text-xs font-mono tracking-widest text-muted uppercase mb-4">Verificación de integridad</p>
-          <p className="text-sm text-muted leading-relaxed mb-4">
-            El hash SHA-256 te permite comprobar que el archivo descargado es exactamente el original y no ha sido modificado ni corrompido. Es una práctica estándar en software profesional.
-          </p>
-          <p className="text-sm font-medium text-text mb-2">Cómo verificarlo en Windows:</p>
-          <p className="text-xs text-muted mb-3">Abre PowerShell y ejecuta:</p>
-          <div className="bg-surface-2 border border-border rounded-sm px-4 py-3 mb-3">
-            <p className="font-mono text-xs text-text select-all">{'Get-FileHash "C:\\ruta\\al\\archivo\\ZahoriFields-Setup-2.0.0-beta.1.zip" -Algorithm SHA256'}</p>
-          </div>
-          <p className="text-xs text-muted leading-relaxed">
-            Si el resultado coincide con el hash que aparece en la tarjeta de descarga, el archivo es auténtico.
-          </p>
-        </div>
-
-        {/* Guía de instalación */}
-        <div className="mb-14">
-          <span className="section-label">Guía de instalación</span>
-
-          <div className="mt-4 flex items-start gap-3 border border-yellow-200 bg-yellow-50 rounded-sm px-5 py-4 mb-8">
-            <AlertTriangle className="w-4 h-4 text-yellow-600 mt-0.5 shrink-0" />
-            <p className="text-xs text-yellow-700 leading-relaxed">
-              Windows puede mostrar un aviso de SmartScreen al ejecutar el instalador. Haz clic en <strong>"Más información"</strong> y luego en <strong>"Ejecutar de todas formas"</strong> para continuar.
-            </p>
-          </div>
-
-          {/* Vídeo */}
-          <div className="border border-border rounded-sm overflow-hidden bg-black mb-10 max-w-2xl">
-            <video src="/instalacion/instalacion.mp4" controls className="w-full" poster="/instalacion/instalacion_1.jpg" />
-          </div>
-
-          {/* Pasos */}
+        {/* Desinstalación */}
+        <div className="mt-12 pt-10 border-t border-border">
+          <p className="text-xs font-mono tracking-widest text-muted uppercase mb-6">Desinstalación</p>
           <div className="space-y-10">
             {[
-              {
-                n: '01',
-                title: '¿Para quién instalar?',
-                desc: 'Elige si instalar solo para tu usuario (recomendado, sin permisos de administrador) o para todos los usuarios del equipo. Haz clic en "Siguiente".',
-                img: '/instalacion/instalacion_1.jpg',
-              },
-              {
-                n: '02',
-                title: 'Carpeta de instalación',
-                desc: 'Por defecto se instala en tu carpeta de usuario. Puedes cambiarla con "Examinar". Necesitas ~794 MB libres. Pulsa "Instalar" para comenzar.',
-                img: '/instalacion/instalacion_2.jpg',
-              },
-              {
-                n: '03',
-                title: 'Instalación completada',
-                desc: 'Cuando aparezca la pantalla de finalización, ZahoriFields está listo. Deja marcada "Ejecutar ZahoriFields" y pulsa "Terminar" para abrirlo.',
-                img: '/instalacion/instalacion_3.jpg',
-              },
+              { n: '01', title: 'Inicia el desinstalador', desc: 'Ve a Configuración → Aplicaciones, busca "ZahoriFields" y haz clic en "Desinstalar". Asegúrate de que la aplicación no esté en ejecución.', img: '/instalacion/desinstalacion_1.jpg' },
+              { n: '02', title: 'Desinstalación completada', desc: 'Cuando aparezca la pantalla de finalización, ZahoriFields ha sido eliminado del sistema. Pulsa "Terminar".', img: '/instalacion/desinstalacion_2.jpg' },
             ].map(({ n, title, desc, img }) => (
               <div key={n} className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
@@ -230,43 +168,13 @@ export default function Download() {
               </div>
             ))}
           </div>
-
-          {/* Desinstalación */}
-          <div className="mt-12 pt-10 border-t border-border">
-            <p className="text-xs font-mono tracking-widest text-muted uppercase mb-6">Desinstalación</p>
-            <div className="space-y-10">
-              {[
-                {
-                  n: '01',
-                  title: 'Inicia el desinstalador',
-                  desc: 'Ve a Configuración → Aplicaciones, busca "ZahoriFields" y haz clic en "Desinstalar". Asegúrate de que la aplicación no esté en ejecución.',
-                  img: '/instalacion/desinstalacion_1.jpg',
-                },
-                {
-                  n: '02',
-                  title: 'Desinstalación completada',
-                  desc: 'Cuando aparezca la pantalla de finalización, ZahoriFields ha sido eliminado del sistema. Pulsa "Terminar".',
-                  img: '/instalacion/desinstalacion_2.jpg',
-                },
-              ].map(({ n, title, desc, img }) => (
-                <div key={n} className="grid md:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <p className="font-mono text-xs text-accent mb-2 font-medium">{n}</p>
-                    <h3 className="text-sm font-semibold text-text mb-2">{title}</h3>
-                    <p className="text-xs text-muted leading-relaxed">{desc}</p>
-                  </div>
-                  <div className="border border-border rounded-sm overflow-hidden shadow-sm">
-                    <img src={img} alt={title} className="w-full object-cover" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
+      </div>
 
-        {/* Requisitos */}
+      {/* Requisitos */}
+      <div>
         <span className="section-label">Requisitos del sistema</span>
-        <div className="border border-border bg-white rounded-sm mb-14 overflow-hidden">
+        <div className="border border-border bg-white rounded-sm mt-4 overflow-hidden">
           <div className="grid grid-cols-3 bg-surface-2 px-5 py-3 border-b border-border">
             <p className="text-xs font-mono text-muted"></p>
             <p className="text-xs font-mono text-muted">Mínimo</p>
@@ -280,27 +188,158 @@ export default function Download() {
             </div>
           ))}
         </div>
+      </div>
 
-        {/* FAQ */}
+      {/* FAQ */}
+      <div>
         <span className="section-label">Preguntas frecuentes</span>
-        <div className="border border-border bg-white rounded-sm overflow-hidden">
+        <div className="border border-border bg-white rounded-sm overflow-hidden mt-4">
           {faqs.map(({ q, a }, i) => (
             <div key={i} className={i < faqs.length - 1 ? 'border-b border-border' : ''}>
-              <button
-                className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-surface-2 transition-colors"
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
-              >
+              <button className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-surface-2 transition-colors" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                 <span className="text-sm text-text font-medium">{q}</span>
                 <span className="text-muted font-mono text-lg leading-none shrink-0">{openFaq === i ? '−' : '+'}</span>
               </button>
-              {openFaq === i && (
-                <div className="px-5 pb-4">
-                  <p className="text-sm text-muted leading-relaxed">{a}</p>
-                </div>
-              )}
+              {openFaq === i && <div className="px-5 pb-4"><p className="text-sm text-muted leading-relaxed">{a}</p></div>}
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  )
+}
+
+function DockerContent() {
+  const dockerSteps = [
+    {
+      n: '01', title: 'Instala Docker Desktop',
+      desc: 'Docker Desktop es la aplicación que permite ejecutar contenedores. Es gratuita y funciona en Windows, Mac y Linux.',
+      extra: <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noreferrer" className="btn-primary inline-flex mt-4"><ExternalLink className="w-4 h-4" />Descargar Docker Desktop</a>,
+      note: 'Después de instalarlo, ábrelo y espera a que aparezca la ballena en la barra de tareas.',
+    },
+    {
+      n: '02', title: 'Abre una terminal',
+      list: [
+        { os: 'Windows', how: 'Busca "PowerShell" en el menú de inicio' },
+        { os: 'Mac', how: 'Busca "Terminal" con Spotlight (⌘ + Espacio)' },
+        { os: 'Linux', how: 'Pulsa Ctrl + Alt + T' },
+      ],
+    },
+    {
+      n: '03', title: 'Ejecuta este comando',
+      desc: 'Copia y pega el siguiente comando en la terminal. La primera vez descarga la imagen (~500 MB). Las siguientes veces es instantáneo.',
+      code: 'docker run -p 8000:8000 neburelgrande/zahorifields:latest',
+    },
+    {
+      n: '04', title: 'Abre el navegador',
+      desc: 'Cuando veas "Uvicorn running..." en la terminal, abre tu navegador y escribe:',
+      code: 'http://localhost:8000',
+      note: 'Para detener la aplicación vuelve a la terminal y pulsa Ctrl + C.',
+    },
+  ]
+
+  return (
+    <div className="max-w-2xl mx-auto space-y-12">
+      {dockerSteps.map(({ n, title, desc, extra, note, list, code }) => (
+        <div key={n} className="flex gap-6">
+          <span className="font-mono text-xs text-accent shrink-0 mt-0.5">{n}</span>
+          <div className="flex-1">
+            <h2 className="text-base font-semibold text-text mb-3">{title}</h2>
+            {desc && <p className="text-sm text-muted leading-relaxed mb-4">{desc}</p>}
+            {list && (
+              <ul className="space-y-2 mb-4">
+                {list.map(({ os, how }) => (
+                  <li key={os} className="flex gap-3 text-sm text-muted">
+                    <span className="font-medium text-text w-16 shrink-0">{os}</span>
+                    <span>{how}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {code && <CopyBlock code={code} />}
+            {extra}
+            {note && <p className="text-xs text-muted mt-3 leading-relaxed border-l-2 border-border pl-3">{note}</p>}
+          </div>
+        </div>
+      ))}
+
+      <div className="border border-border bg-white rounded-sm">
+        <div className="px-6 py-5 border-b border-border">
+          <h2 className="text-base font-semibold text-text">Parar y arrancar</h2>
+        </div>
+        <div className="px-6 py-5 space-y-6">
+          <div>
+            <p className="text-sm font-medium text-text mb-1">Opción 1 — Desde Docker Desktop <span className="text-xs font-normal text-muted">(más fácil)</span></p>
+            <p className="text-xs text-muted leading-relaxed">Abre Docker Desktop → ve a <strong className="text-text">Containers</strong> → haz clic en el botón de stop <strong className="text-text">⏹</strong> al lado del contenedor <code className="font-mono bg-surface-2 px-1.5 py-0.5 rounded-sm border border-border text-text">zahorifields</code>.</p>
+          </div>
+          <div>
+            <p className="text-sm font-medium text-text mb-3">Opción 2 — Desde la terminal</p>
+            <p className="text-xs text-muted mb-2">Para detenerlo:</p>
+            <CopyBlock code="docker stop zahorifields" />
+            <p className="text-xs text-muted mb-2">Para volver a arrancarlo:</p>
+            <CopyBlock code="docker start zahorifields" />
+          </div>
+        </div>
+      </div>
+
+      <div className="border border-border bg-accent-light rounded-sm p-5">
+        <p className="text-sm text-text font-medium mb-1">¿Algo no funciona?</p>
+        <p className="text-xs text-muted leading-relaxed">
+          Asegúrate de que Docker Desktop está abierto y la ballena aparece en la barra de tareas antes de ejecutar el comando. Si tienes dudas, visita la{' '}
+          <Link to="/comunidad" className="text-accent hover:underline">comunidad</Link>.
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export default function Download() {
+  const [os, setOs] = useState('windows')
+  const downloads = useDownloadCount()
+
+  return (
+    <div className="pt-16">
+      {/* Header */}
+      <div className="bg-white border-b border-border">
+        <div className="max-w-screen-xl mx-auto px-6 py-16">
+          <span className="section-label">Software</span>
+          <h1 className="text-4xl font-semibold tracking-tight text-text mb-3">Download</h1>
+          <p className="text-muted text-sm max-w-md">Descarga ZahoriFields para tu sistema operativo. Gratuito, sin registro requerido.</p>
+          {downloads != null && (
+            <p className="text-[11px] font-mono text-accent mt-4">{formatCount(downloads)} descargas totales</p>
+          )}
+        </div>
+      </div>
+
+      {/* Selector centrado */}
+      <div className="border-b border-border bg-surface-2">
+        <div className="max-w-screen-xl mx-auto px-6 py-6 flex justify-center">
+          <div className="inline-flex rounded-sm border border-border bg-white overflow-hidden shadow-sm">
+            <button
+              onClick={() => setOs('windows')}
+              className={`flex items-center gap-3 px-8 py-4 text-sm font-medium transition-all duration-150 ${os === 'windows' ? 'bg-accent text-white' : 'text-muted hover:text-text hover:bg-surface-2'}`}
+            >
+              <WindowsIcon className="w-5 h-5" />
+              Windows
+            </button>
+            <div className="w-px bg-border" />
+            <button
+              onClick={() => setOs('docker')}
+              className={`flex items-center gap-3 px-8 py-4 text-sm font-medium transition-all duration-150 ${os === 'docker' ? 'bg-accent text-white' : 'text-muted hover:text-text hover:bg-surface-2'}`}
+            >
+              <DockerIcon className="w-5 h-5" />
+              Docker
+              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-sm border ${os === 'docker' ? 'border-white/40 text-white/70' : 'border-border text-muted'}`}>
+                Mac · Linux · Win
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Contenido */}
+      <div className="max-w-screen-xl mx-auto px-6 py-14">
+        {os === 'windows' ? <WindowsContent /> : <DockerContent />}
       </div>
     </div>
   )
