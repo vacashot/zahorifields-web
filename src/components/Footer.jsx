@@ -61,16 +61,16 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-border bg-[#3a7d28]">
-        <div className="max-w-screen-xl mx-auto px-6 py-5 flex items-center justify-between gap-8">
+        <div className="max-w-screen-xl mx-auto px-6 py-5 flex flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-8">
           <img
             src="/images/itacyl_blanco.svg"
             alt="ITACYL"
-            className="h-10 w-auto shrink-0"
+            className="h-8 sm:h-10 w-auto max-w-full shrink-0"
           />
           <img
             src="/images/FEMPA_PEPAC_Agricultura_NEG_JCYL.svg"
             alt="FEMPA · PEPAC · Agricultura · Junta de Castilla y León"
-            className="h-10 w-auto"
+            className="h-8 sm:h-10 w-auto max-w-full shrink-0"
           />
         </div>
       </div>
