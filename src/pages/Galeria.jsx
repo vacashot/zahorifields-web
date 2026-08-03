@@ -9,6 +9,7 @@ const THUMB_SIZES = '(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw'
 const FULL_SIZES = '95vw'
 
 const photos = [
+  { base: 'zahoria',                    caption: 'ZahorIA · Clasificación con IA (beta)' },
   { base: 'edicion',                    caption: 'Panel de edición' },
   { base: 'indices',                    caption: 'Índices de vegetación' },
   { base: 'ndvi',                       caption: 'Mapa NDVI' },
