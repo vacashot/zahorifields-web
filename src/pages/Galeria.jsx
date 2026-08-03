@@ -30,9 +30,6 @@ const photos = [
 const videos = [
   { src: '/galeria/modulo_cobertura_vegetal.mp4',  caption: 'Módulo cobertura vegetal', poster: 'modulo_cobertura_vegetal' },
   { src: '/galeria/modulo_mascara_vegetacion.mp4', caption: 'Módulo máscara de vegetación', poster: 'modulo_mascara_vegetacion' },
-  { src: '/galeria/droncowzahori.mp4',             caption: 'Dron en campo · ZahoriFields' },
-  { src: '/galeria/dronborrar.mp4',               caption: 'Vuelo de dron' },
-  { src: '/galeria/dronmagico.mp4',               caption: 'Dron agrícola' },
 ]
 
 function srcSet(base, widths, ext, folder) {
