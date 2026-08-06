@@ -115,15 +115,25 @@ function PhotoLightbox({ items, active, onClose }) {
     containerRef.current?.focus()
   }, [])
 
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === 'ArrowLeft') prev()
+      if (e.key === 'ArrowRight') next()
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [])
+
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+      className="fixed inset-0 z-[200] bg-black/90 flex items-center justify-center"
       onClick={onClose}
-      onKeyDown={(e) => { if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next(); if (e.key === 'Escape') onClose() }}
-      tabIndex={0}
+      tabIndex={-1}
+      style={{ outline: 'none' }}
     >
-      <button className="absolute left-4 text-white/60 hover:text-white p-2" onClick={(e) => { e.stopPropagation(); prev() }}>
+      <button className="absolute left-4 text-white/60 hover:text-white p-2 z-10" onClick={(e) => { e.stopPropagation(); prev() }}>
         <ChevronLeft className="w-8 h-8" />
       </button>
 
@@ -142,11 +152,11 @@ function PhotoLightbox({ items, active, onClose }) {
         {item.caption && <p className="text-center text-white/60 text-sm mt-4">{item.caption}</p>}
       </div>
 
-      <button className="absolute right-4 text-white/60 hover:text-white p-2" onClick={(e) => { e.stopPropagation(); next() }}>
+      <button className="absolute right-4 text-white/60 hover:text-white p-2 z-10" onClick={(e) => { e.stopPropagation(); next() }}>
         <ChevronRight className="w-8 h-8" />
       </button>
 
-      <button className="absolute top-4 right-4 text-white/60 hover:text-white p-2" onClick={onClose}>
+      <button className="absolute top-4 right-4 text-white/60 hover:text-white p-2 z-10" onClick={onClose}>
         <X className="w-6 h-6" />
       </button>
 
@@ -166,15 +176,25 @@ function VideoLightbox({ items, active, onClose }) {
     containerRef.current?.focus()
   }, [])
 
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === 'ArrowLeft') prev()
+      if (e.key === 'ArrowRight') next()
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [])
+
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+      className="fixed inset-0 z-[200] bg-black/90 flex items-center justify-center"
       onClick={onClose}
-      onKeyDown={(e) => { if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next(); if (e.key === 'Escape') onClose() }}
-      tabIndex={0}
+      tabIndex={-1}
+      style={{ outline: 'none' }}
     >
-      <button className="absolute left-4 text-white/60 hover:text-white p-2" onClick={(e) => { e.stopPropagation(); prev() }}>
+      <button className="absolute left-4 text-white/60 hover:text-white p-2 z-10" onClick={(e) => { e.stopPropagation(); prev() }}>
         <ChevronLeft className="w-8 h-8" />
       </button>
 
@@ -183,11 +203,11 @@ function VideoLightbox({ items, active, onClose }) {
         {item.caption && <p className="text-center text-white/60 text-sm mt-4">{item.caption}</p>}
       </div>
 
-      <button className="absolute right-4 text-white/60 hover:text-white p-2" onClick={(e) => { e.stopPropagation(); next() }}>
+      <button className="absolute right-4 text-white/60 hover:text-white p-2 z-10" onClick={(e) => { e.stopPropagation(); next() }}>
         <ChevronRight className="w-8 h-8" />
       </button>
 
-      <button className="absolute top-4 right-4 text-white/60 hover:text-white p-2" onClick={onClose}>
+      <button className="absolute top-4 right-4 text-white/60 hover:text-white p-2 z-10" onClick={onClose}>
         <X className="w-6 h-6" />
       </button>
 
