@@ -177,11 +177,15 @@ function PhotoLightbox({ items, active, onClose }) {
         <ChevronRight className="w-7 h-7" />
       </button>
 
-      <button className="absolute top-4 right-4 text-white/60 hover:text-white p-2 z-10 hover:bg-white/10 rounded-sm transition-colors" onClick={onClose}>
+      <button
+        className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 text-white transition-colors"
+        onClick={onClose}
+        title="Cerrar (Esc)"
+      >
         <X className="w-5 h-5" />
       </button>
 
-      <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-xs font-mono tabular-nums">
+      <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/40 text-xs font-mono tabular-nums">
         {idx + 1} / {items.length}
       </p>
     </div>
@@ -229,11 +233,15 @@ function VideoLightbox({ items, active, onClose }) {
         <ChevronRight className="w-7 h-7" />
       </button>
 
-      <button className="absolute top-4 right-4 text-white/60 hover:text-white p-2 z-10 hover:bg-white/10 rounded-sm transition-colors" onClick={onClose}>
+      <button
+        className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 text-white transition-colors"
+        onClick={onClose}
+        title="Cerrar (Esc)"
+      >
         <X className="w-5 h-5" />
       </button>
 
-      <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-xs font-mono tabular-nums">
+      <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/40 text-xs font-mono tabular-nums">
         {idx + 1} / {items.length}
       </p>
     </div>
