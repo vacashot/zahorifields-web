@@ -178,7 +178,7 @@ function PhotoLightbox({ items, active, onClose }) {
       </button>
 
       <button
-        className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 text-white transition-colors"
+        className="absolute top-4 right-4 z-10 flex items-center justify-center w-11 h-11 rounded-full bg-black/60 border border-white/30 hover:bg-black/80 text-white transition-colors"
         onClick={onClose}
         title="Cerrar (Esc)"
       >
@@ -234,7 +234,7 @@ function VideoLightbox({ items, active, onClose }) {
       </button>
 
       <button
-        className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 text-white transition-colors"
+        className="absolute top-4 right-4 z-10 flex items-center justify-center w-11 h-11 rounded-full bg-black/60 border border-white/30 hover:bg-black/80 text-white transition-colors"
         onClick={onClose}
         title="Cerrar (Esc)"
       >
